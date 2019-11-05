@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'exposants', loadChildren: './exposants/exposants.module#ExposantsPageModule' },
   { path: 'rdv', loadChildren: './rdv/rdv.module#RdvPageModule' },
   { path: 'themes', loadChildren: './themes/themes.module#ThemesPageModule' },
-  { path: 'stands', loadChildren: './stands/stands.module#StandsPageModule' }
+  { path: 'stands', loadChildren: './stands/stands.module#StandsPageModule' },
+  { path: 'historique', loadChildren: './historique/historique.module#HistoriquePageModule' }
 ];
 @NgModule({
   imports: [
