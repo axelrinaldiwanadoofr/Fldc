@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-stands',
   templateUrl: './stands.page.html',
@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StandsPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: Router) { }
+  accueilpage()
+  {
+    this.route.navigate(['']);
+  }
   ngOnInit() {
   }
 

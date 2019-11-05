@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-telechargement',
   templateUrl: './telechargement.page.html',
@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelechargementPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: Router) { }
+  accueilpage()
+  {
+    this.route.navigate(['']);
+  }
   ngOnInit() {
   }
 
