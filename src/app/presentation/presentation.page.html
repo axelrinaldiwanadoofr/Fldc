@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+     <ion-buttons slot="start">
+      <ion-button (click)="accueilpage()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Présentation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="historiquepage()" expand="block" fill="clear" color="warning" size="large">Historique</ion-button>
+  <ion-button (click)="datepage()" expand="block" fill="clear" color="primary" size="large">Date importante</ion-button>
+  <ion-button (click)="themepage()" expand="block" fill="clear" color="secondary" size="large">Thème 2019</ion-button>
+  <ion-button (click)="archivepage()" expand="block" fill="clear" color="tertiary" size="large">Archive</ion-button>
+  <ion-button (click)="premierchappage()" expand="block" fill="clear" color="danger" size="large">Premier chapitre</ion-button>
+</ion-content>
