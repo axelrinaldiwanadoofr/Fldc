@@ -1,0 +1,27 @@
+<!--
+  Generated template for the FavorisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Favoris</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-border>
+        <ion-item ion-item *ngFor="let f of favoris">
+            <p style="white-space:initial;" (click)="onFavorisClick( f )">
+                <b>Stand n° {{f.idStand}}</b> <span *ngIf='f.idExposant'>{{f.nomExposant}}</span>
+            </p>
+            <button ion-button  item-end (click)="onRemoveFavorisClick( f )" class="btnSuppr" color="rouge" > <ion-icon name="md-trash"></ion-icon></button>
+        </ion-item>   
+    </ion-list>
+    <button ion-button full (click)="onPlan()"class="btn" color="rouge">Afficher sur le plan</button> 
+</ion-content>
+

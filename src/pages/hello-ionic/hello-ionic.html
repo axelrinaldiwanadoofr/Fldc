@@ -1,0 +1,84 @@
+<ion-header>
+    
+    <ion-navbar>
+        
+        <button ion-button menuToggle start>
+      <ion-icon name="menu"></ion-icon>
+       </button>
+
+        
+ 
+        <button ion-button class="btn-right" color="rouge" (click)="recherche()">
+            <ion-icon name="ios-search" class="btn-right"   ></ion-icon>
+        </button>
+        <ion-title>Accueil</ion-title>
+    </ion-navbar>
+    
+</ion-header>
+
+
+<ion-content class="background">
+    <ion-grid>
+        <p></p>
+        <ion-row row-auto>
+            <!--
+            <ion-col>
+                <br>
+                <img src="assets/img/bandeauSuggestionRDV.png"><br>
+                <p class="rdv" *ngFor="let rdvs of rdv">{{rdvs.heure}} : Stand {{rdvs.titre}} n° {{rdvs.numStand}} ({{rdvs.libelle}})</p>
+            </ion-col>
+        -->
+        </ion-row>
+        <h1 class="ios">Informations</h1>
+        <ion-row>
+
+            <ion-col>
+                <button class="btn" (click)="restaurants()"><img src="assets/img/Repas.png"><br><strong>Restauration</strong></button>
+            </ion-col>
+                        
+            <ion-col>
+                    <button class="btn" (click)="plan()"><img src="assets/img/plan2.png"><br><strong>Plan</strong></button>
+            </ion-col>
+            
+            <ion-col>
+                <button class="btn" (click)="recherche()"><img src="assets/img/recherche.png" ><br>Rechercher</button>
+            </ion-col>
+       
+        </ion-row>
+        <h1 class="ios">Jeu de piste</h1>
+        <ion-row>
+            <ion-col>
+                <button class="btn" (click)="jeuPiste()"><img class="" src="assets/img/Jeudepiste.png"><br></button>
+            </ion-col>
+        </ion-row>
+<<<<<<< HEAD
+=======
+        <!--<ion-row>
+            <ion-col>
+                <img src="assets/img/TanguyV2petiteReso.png">
+                Numéro de téléphone pour plus d'informations : 06.35.97.40.38
+                Snapshat : tanguyprvst67
+            </ion-col>
+        </ion-row>-->
+>>>>>>> 514d2b0bd739409ab24e7e7d24e1e74cd5957f8f
+        
+        <h1 class="ios">Nous suivre</h1>
+        
+        <ion-row>
+            <ion-col>
+                <a href="https://www.facebook.com/FDLColmar/" target="blank_"><img class="logo" src="assets/img/logos/logo_facebook.png"></a>
+            </ion-col>
+            <ion-col>
+                <a href="https://twitter.com/FDLColmar" target="blank_"><img class="logo" src="assets/img/logos/logo_twitter.png"></a>
+            </ion-col>
+            <ion-col>
+                <a href="https://www.youtube.com/channel/UCplO0GHglt-lcuRvGM7Z2mA/videos" target="blank_"><img class="logo" src="assets/img/logos/logo_youtube.png"></a>
+            </ion-col>
+            <ion-col>
+                <a href="https://www.instagram.com/fdlcolmar/" target="blank_"><img class="logo" src="assets/img/logos/logo_instagram.png"></a>
+            </ion-col>
+        
+        </ion-row>
+    
+    </ion-grid>
+</ion-content>

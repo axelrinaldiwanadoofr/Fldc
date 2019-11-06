@@ -1,0 +1,33 @@
+page-recherche-rdv {
+    .btn
+        {
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+            height: 50px;
+            margin-bottom: 40px;
+            color:white;
+            background: #C51B5E;
+            border-radius: 10% / 55%;
+        }
+
+        .debutListe{
+            background: #DED8CF;
+            color: black;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .Liste{
+            background: #DED8CF;
+            color: black;
+            border-radius: 0px 0px 0px 0px;
+           
+        }
+
+        .finListe{
+            background: #DED8CF;
+            color: black;
+            border-radius: 0px 0px 10px 10px;
+        }
+    
+}

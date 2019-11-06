@@ -1,0 +1,26 @@
+<!--
+  Generated template for the FrmListeRdvPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Frm liste des RDV</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let r of rdv">
+      <p style="white-space:initial;"><b>{{r.titre}}</b></p>  
+      <br>
+      <p [hidden]="!r.resume" style="white-space:initial;">{{r.resume}}</p>
+      <br>
+      <p>{{r.duree}} pour {{r.age}} sur le stand n° <b>{{r.numStand}}</b></p><br>
+      <p><b>{{r.date}} <span [hidden]="r.duree=='en continu'">{{r.heure}}</span></b></p> 
+    </ion-item>      
+  </ion-list>
+</ion-content>

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+page-hello-ionic {
+    //changer la couleur du header voir dans app/app.scss ligne 60
+
+  
+    .btn-right {
+        float: right;
+        color:white;
+        background: #C51B5E;
+    }
+   
+    .ios{
+        color: #C51B5E;
+    }
+    .logo {
+       
+        border-radius: 20px;
+    }
+    .imgbtn {
+        //image plan
+        border-radius: 10px;
+        //border: 1px solid white; #ffaa00;
+    }
+    .logo-client {
+        margin: 2px;
+        max-height: 300px;
+        max-width: auto;
+        //border: 2px solid #0099ff;
+        border-radius: 10px;
+    }
+    .btn {
+        border-radius: 0px;
+        background: linear-gradient(#EEEDEB); //#ffaa00;
+        font-size: 120%;
+        font-weight: bold;
+        max-height: 225px;
+        max-width: 200px;
+    }
+    
+    .btnresto:active {
+        transform: translate(0px, 3px);
+        box-shadow: 0px 2px #fff3e6;
+    }
+    .btn:active {
+        transform: translate(0px, 3px);
+        box-shadow: 0px 2px #fff3e6;
+    }
+    .searchbar {
+        background: grey;
+        border-radius: 10px;
+    }
+    ion-col {
+        border: 1px solid transparent;
+    }
+    
+    .rdv {
+        font-weight: bold;
+        font-size: 100%;
+        text-align: left;
+    }
+    .btn2 {
+        font-size: 120%;
+        font-weight: bold;
+        width: 80px;
+        background: #fff7e6;
+    }
+}

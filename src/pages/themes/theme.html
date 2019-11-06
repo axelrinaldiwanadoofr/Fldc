@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Thème {{theme.id}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input [(ngModel)]="theme.nom_theme"></ion-input>
+    </ion-item>
+    <button ion-button color="secondary" (click)="save($event, theme)">
+      Enregistrer
+    </button>
+    <button ion-button color="secondary" (click)="delete($event, theme)">
+      Supprimer
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the LivrePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{titre}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="background" padding>
+    <!-- <ion-segment-button class="segment-button" role="button" tappable="" ng-reflect-value="parcExpo" aria-pressed="false">
+        Résumé
+    </ion-segment-button> -->
+    <ion-card>
+        <img src={{image}}>
+        <ion-card-content>
+            <ion-card-title>      
+            de <b>{{auteur}}</b>
+
+            <fieldset class="fieldLivre">
+                    <legend> &nbsp; Editeur &nbsp; </legend>
+                    <p>{{editeur}}</p>
+            </fieldset>
+
+            <fieldset class="fieldLivre">
+                    <legend> &nbsp; Exposant &nbsp; </legend>
+                    <p (click)="onExposantClick(idExposant)">{{nomExposant}}</p>
+            </fieldset>
+
+            <fieldset class="fieldLivre">
+                    <legend> &nbsp; Stand n° &nbsp; </legend>
+                    <p (click)="onNumStandClick(numStand)" class="texte">{{numStand}}</p>
+            </fieldset>
+
+            <fieldset class="fieldLivre">
+                    <legend> &nbsp; Résumé &nbsp; </legend>
+                    <p class="texte">{{enResume}}</p>
+            </fieldset>
+
+            <fieldset class="fieldLivre">
+                    <legend> &nbsp; Commentaire &nbsp; </legend>
+                    <p class="texte">{{commentaire}}</p>
+            </fieldset>
+
+            </ion-card-title>
+        
+        </ion-card-content>
+    </ion-card>
+    
+    
+</ion-content>

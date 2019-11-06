@@ -1,0 +1,49 @@
+page-restaurants {
+    .toolbar-background-md,
+    .toolbar-background-ios {
+      //  background: linear-gradient(to bottom left, #0099ff 0%, #0066cc 100%);
+    }
+    body 
+	{
+		text-align: center;
+		font-family: "trebuchet ms", sans-serif;
+		margin:auto;
+	}
+	
+    h2
+    {
+        text-align: center;
+    }
+    
+    table
+    {
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+    }
+	
+	th 
+	{
+		padding-top: 20px;
+		text-align: left;
+		font-size: 18px;
+		border-bottom:2px solid black;
+	}
+    
+    td
+    {
+        text-align: left;
+		border-bottom:0.5px solid black;
+    }
+	
+	td.hall {
+		margin-left:5px;
+		font-weight: bold;
+	}
+	
+	td.decal {
+		width:7px;
+		border-bottom:none;
+	}
+    
+}

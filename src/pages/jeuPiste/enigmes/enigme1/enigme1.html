@@ -1,0 +1,115 @@
+<!-- enigme1.html Page qui gère l'affichage de l'énigme -->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Jeu de Piste</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background" padding>
+  <h3>
+    <fieldset *ngIf="!messageFin"   class="field"> 
+    <p *ngIf="!messageFin" class="center">
+      {{todo.title}}
+    </p>
+  </fieldset>
+  </h3>
+    
+
+  <!-- Partie aller au stand X -->  
+  <!--Avant le Code : -->
+  <h6>
+      
+    <div>
+      <ion-label *ngIf="!codeBon" class="center"><h4>Stand</h4></ion-label>
+      <ion-input *ngIf="!codeBon" class="center" type= "text" [(ngModel)]="todo.numStand" text-center></ion-input>
+      <ion-label *ngIf="!codeBon" >Rendez vous sur le stand trouvez le code </ion-label>
+      <ion-label *ngIf="!codeBon" >(N'hésitez pas à le prendre en photo) </ion-label>
+      <ion-label *ngIf="!codeBon" >et insérez le ci-dessous </ion-label>
+    </div>
+  </h6>
+
+
+  
+  <!--Saisie du code-->
+  <!--Check si le code de l'enigme est bon-->
+  <ion-item *ngIf="!codeBon" class="Liste">
+    <ion-label *ngIf="!codeBon"  >Code :  </ion-label>
+    <ion-input *ngIf="!codeBon"  type="text"  [(ngModel)]="codeEnigme"></ion-input>
+  </ion-item>
+  
+  <br/>
+  <!-- création du bouton clickable qui renvoit vers la fonction onClickCode() -->
+  <button *ngIf="!codeBon"  ion-button round (click)="onClickCode()" class="debutJeu" color="rouge">Afficher l'énigme</button>
+  <!-- Si le code est errone -->
+  <ion-label *ngIf="erreurCode" color="red"  ><strong> Code incorrect ou mal écrit </strong></ion-label>
+
+  
+
+
+
+  <!--Après que le code soit validé: -->
+  <h6>
+  <!-- Affiche l'enigme et/ou image (rebus par ex) -->
+  <div *ngIf="repAValider"  [innerHTML]="todo.description" text-left></div>    
+  <img *ngIf="afficherImage && codeBon" src={{todo.image}} style="width:535px;height:300px;" class="center">
+  
+  </h6>
+  <br/>
+
+  <!-- petit commentaire inutile pour vous faire coucou, histoire de perdre un peu de temps.
+  alors voila la on nous oblige à vous commenter le code, j'espère que vous n'êtes pas teubé 
+  parce que y'a quand même un bon nombre de balises obvious -->
+  
+  
+  
+
+  <!--Saisie de la réponse-->
+  <ion-item *ngIf="repAValider"  class="Liste">
+    <ion-label *ngIf="repAValider" >Réponse :  </ion-label>
+    <ion-input *ngIf="repAValider"  type="text"  [(ngModel)]="reponseDonnee"></ion-input>
+  </ion-item>
+  <br/>
+
+
+
+  <!--Traitement de la réponse-->
+  <button *ngIf="repAValider" color="rouge"  ion-button round (click)="onClickEnigme()" class="debutJeu">Valider</button>
+  <ion-label *ngIf="erreurRep" color="red"><strong> Réponse erronée ou mal écrite </strong></ion-label>
+
+
+
+  <!--Validation avant l'affichage de la prochaine énigme-->
+  <ion-label *ngIf="reponseBonne"  color="lime"><strong> Bonne réponse ! </strong></ion-label>
+  <br/>
+
+  <h6>
+    <div *ngIf="reponseBonne"  [innerHTML]="todo.commentaireFin" text-left></div>    
+  </h6>
+  <br/>
+  <!-- Bouton pour passer à l'énigme suivante -->
+  <button *ngIf="reponseBonne"  color="rouge" ion-button round (click)="onClickValideEnigme()" class="debutJeu">Passer à l'énigme suivante</button>
+
+  <!-- easter egg incoming -->
+
+  <!--Affichage Message Final-->
+  <h3>
+    <strong>
+    <div *ngIf="messageFin" text-center>
+      Felicitations !!!
+    </div>
+    <br/>
+    <div *ngIf="messageFin" text-center>
+      Vous avez fini notre jeu de piste, rendez-vous à l'entrée du salon chez les étudiants en informatique :D
+    </div>
+    </strong>
+  </h3>
+
+  <!--label de validation de victoire de derniere enigme du jeu-->
+  <ion-label *ngIf="victoire"  color="lime"><strong> Vous avez déjà gagné le jeu ! Félicitations ! </strong></ion-label>
+
+</ion-content>
+
+<!-- Pascal is gay -->

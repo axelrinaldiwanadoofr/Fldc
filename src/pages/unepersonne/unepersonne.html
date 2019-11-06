@@ -1,0 +1,42 @@
+<!--
+  Generated template for the UnepersonnePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{unePersonne.nom}} {{unePersonne.prenom}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+                    
+        <ion-item-divider class="debutListe" [hidden]="!dedicaces.length">Signatures</ion-item-divider>
+        <ion-item *ngFor="let d of dedicaces">
+            <p style="white-space:initial;">
+                <b>{{d.libelle}}</b> {{d.jour}} à {{ d.heure }} sur le stand n° {{d.idStand}}
+            </p>
+        </ion-item>      
+        <button ion-button full [hidden]="!dedicaces.length" (click)="onDedicacesPlan()">Afficher sur le plan</button>            
+        <ion-item-divider class="debutListe" [hidden]="!rdv.length">Les rendez-vous</ion-item-divider>
+        <ion-item *ngFor="let r of rdv">
+          <p style="white-space:initial;"><b>Nom:</b> {{r.nom}}</p>  
+          <p></p>
+                 <p [hidden]="!r.description" style="white-space:initial;"><b>Description:</b> {{r.description}}</p>
+                 <br>
+          <p>{{r.duree}} pour {{r.age}} sur le stand n° <b>{{r.idStand}}</b></p><br>
+          <p><b>{{r.jour}} <span>{{r.heure}}</span></b></p> 
+          <p class="addFavorie" (click)="onFavorisRDV(r)">
+              <ion-icon name="star" class="star"></ion-icon>
+          </p>
+        </ion-item>      
+        <!--<button ion-button full [hidden]="!rdv.length" class="btn" (click)="onRdvPlan()">Afficher sur le plan</button>-->
+        <button ion-button full (click)="onFavoris()" class="btn" color="rouge">Ajouter aux favoris</button>            
+    </ion-list>   
+</ion-content>
+

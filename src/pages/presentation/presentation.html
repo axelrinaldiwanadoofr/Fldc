@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PresentationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+                        <ion-icon name="menu"></ion-icon>
+                    </button>
+        <ion-title>Présentation</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background" padding>
+    <button class="button" color="rouge"  ion-button (click)="historique()">
+        <ion-icon name="clipboard" class="icon"></ion-icon>&nbsp;&nbsp;<ion-label>Historique</ion-label>
+    </button>
+    <button class="button"  color="rouge"  ion-button (click)="date()">
+        <ion-icon name="calendar" class="icon" ></ion-icon>&nbsp;&nbsp;<ion-label>Dates importantes</ion-label>
+    </button>
+    <button class="button" color="rouge"  ion-button (click)="theme()">
+        <ion-icon name="image" class="icon" ></ion-icon>&nbsp;&nbsp;<ion-label>Thème 2018</ion-label>
+    </button>
+    <a href="http://festivaldulivre.colmar.fr/archives-annees-precedentes/" target="blank_">
+        <button class="button" color="rouge"  ion-button>
+            <ion-icon name="archive" class="icon" ></ion-icon>&nbsp;&nbsp;<ion-label>Archives</ion-label>
+        </button>
+    </a>
+    <a href="https://www.premierchapitre.fr/wapp/v4/index.php?idk=793" target="blank_">
+        <button class="button" color="rouge"  ion-button>
+            <ion-icon name="book" class="icon" ></ion-icon>&nbsp;&nbsp;<ion-label>1er Chapitre</ion-label>
+        </button>
+    </a>
+</ion-content>

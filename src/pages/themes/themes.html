@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      Liste des thèmes
+      <button ion-button color="secondary" (click)="onNouveauTheme()">
+        +
+      </button>  
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Liste des thèmes</ion-list-header>
+    <button ion-item *ngFor="let theme of themes" (click)="onThemeClicked($event, theme)">
+      {{theme.id}} {{theme.libelle}} 
+    </button>
+  </ion-list>
+</ion-content>

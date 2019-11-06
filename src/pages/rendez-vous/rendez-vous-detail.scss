@@ -1,0 +1,44 @@
+page-rendez-vous-detail {
+    .space-bot {
+        margin-bottom: 25px;
+    }
+    h1 {
+        color: black;
+        font-family: 'Roboto';
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 25px;
+        text-align: center;
+        background: linear-gradient(to top right, #ff6666 0%, #ff9966 100%);
+        border-radius: 5px;
+    }
+    .p1 {
+        color: black;
+        font-family: 'Roboto';
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: left;
+    }
+    .container {
+        margin: auto;
+    }
+    .signup-screen {
+        padding: 20px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        background: linear-gradient(to top right, #f4a460 0%, #ffcc99 100%);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+        color: white;
+    }
+    .divider {
+        border-bottom: 1px solid black;
+    }
+    .accueil {
+        text-align: center;
+    }
+    .btnacc {
+        height: 50px;
+        background: linear-gradient(to bottom, #00cc66 0%, #009933 100%);
+    }
+}
