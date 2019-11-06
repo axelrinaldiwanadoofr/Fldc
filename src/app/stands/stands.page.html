@@ -8,5 +8,12 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-searchbar (ionInput)="onSearchStand($event)" placeholder="N° du Stand"></ion-searchbar>
+    <br>
+    <button class="button-list"  color="rouge" ion-item *ngFor="let stand of stands" (click)="onSelectStand(stand)" style="text-align:center;font-weight:bold;">
+      <ion-icon class="icon-home" name="home"></ion-icon>
+      STAND {{stand.id}}
+    </button>
+  </ion-list>
 </ion-content>

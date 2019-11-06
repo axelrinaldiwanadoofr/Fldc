@@ -10,9 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { RemoteSqlProvider } from '../providers/remotesql/remotesql' ;
-import { JetonDeConnectionProvider } from '../providers/jeton-de-connection/jeton-de-connection';
 import { WebSqlProvider } from '../providers/websql/websql';
-import { FavorisProvider } from '../providers/favoris/favoris';
 
 
 @NgModule({
@@ -24,12 +22,11 @@ import { FavorisProvider } from '../providers/favoris/favoris';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RemoteSqlProvider,
-    JetonDeConnectionProvider,
-    WebSqlProvider,
-    FavorisProvider    
+    WebSqlProvider
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule 
 {
   constructor()
@@ -44,5 +41,5 @@ export class AppModule
     {
       prd.createTable( "favoris", {idStand: "text", idExposant: "text", nomExposant: "text"}) ;
     });
-  }  
+  }
 }
