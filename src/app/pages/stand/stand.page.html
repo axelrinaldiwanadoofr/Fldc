@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>               
-    <ion-item-divider class="Liste">Liste des exposant</ion-item-divider>
+    <ion-item-divider>Liste des exposant</ion-item-divider>
     <ion-item *ngFor="let e of exposants" (click)="onExposant(e)">
       {{e.nom}}
     </ion-item>
@@ -21,7 +21,7 @@
       <p>{{r.duree}} pour {{r.age}}</p><br>
       <p class="addFavorie" (click)="onFavorisRDV(r)"><ion-icon name="star" class="star"></ion-icon></p>
     </ion-item> 
-    <ion-button color="rouge" full (click)="onPlan()">Afficher sur le plan</ion-button>            
-    <ion-button class="button-list" color="rouge" ion-button full (click)="onFavoris()">Ajouter aux favoris</ion-button>     
+    <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>            
+    <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>     
   </ion-list>
 </ion-content>
