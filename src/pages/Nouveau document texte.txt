@@ -1,5 +1,0 @@
-info
-itinéraire
-mode-d'emloi
-plan d'acces
-app
