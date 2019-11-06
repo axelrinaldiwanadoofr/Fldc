@@ -47,7 +47,7 @@ export class StandsPage implements OnInit
 
   onSelectStand( stand:{id:string} )
   {
-    this.route.navigate(['']);
+    this.route.navigate(['stand/id:'+stand.id]);
   }
 
   onSearchStand( event )

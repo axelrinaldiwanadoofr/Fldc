@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { RemoteSqlProvider } from '../providers/remotesql/remotesql' ;
 import { WebSqlProvider } from '../providers/websql/websql';
+import { FavorisProvider } from '../providers/favoris/favoris';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { WebSqlProvider } from '../providers/websql/websql';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RemoteSqlProvider,
-    WebSqlProvider
+    WebSqlProvider,
+    FavorisProvider
   ],
   bootstrap: [AppComponent]
 })

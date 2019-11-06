@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { WebSqlProvider } from '../../providers/websql/websql';
 //import 'rxjs/add/operator/map';
 
@@ -14,7 +13,6 @@ export class FavorisProvider
 {
 
   constructor(
-    public http: HttpClient,
     public localSql: WebSqlProvider ) 
     {
       console.log('Charge FavorisProvider Provider');

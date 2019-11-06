@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stand n° {{idStand}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>               
+    <ion-item-divider class="Liste">Liste des exposant</ion-item-divider>
+    <ion-item *ngFor="let e of exposants" (click)="onExposant(e)">
+      {{e.nom}}
+    </ion-item>
+    <br>   
+    <ion-item-divider class="Liste">Liste des rendez vous</ion-item-divider>
+    <ion-item *ngFor="let r of rdvs" (click)="onRdv(r)"><!--(click)="onRdv(r)"-->
+      <p style="white-space:initial;"><b>{{r.nom}}</b> ({{r.typeRdv}})</p>  
+      <br>
+      <p [hidden]="!r.duree"><b>le {{r.jour}} à {{r.heure}}</b></p>
+      <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
+      <br>
+      <p>{{r.duree}} pour {{r.age}}</p><br>
+      <p class="addFavorie" (click)="onFavorisRDV(r)"><ion-icon name="star" class="star"></ion-icon></p>
+    </ion-item> 
+    <ion-button color="rouge" full (click)="onPlan()">Afficher sur le plan</ion-button>            
+    <ion-button class="button-list" color="rouge" ion-button full (click)="onFavoris()">Ajouter aux favoris</ion-button>     
+  </ion-list>
+</ion-content>

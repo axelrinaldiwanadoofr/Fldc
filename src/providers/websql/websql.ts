@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { SqlPrd, SqlPrdAnswer } from '../../providers/remotesql/sqlprd';
 
 //import 'rxjs/add/operator/map';
@@ -24,7 +23,7 @@ export class WebSqlProvider extends SqlPrd
 
   private db: any ;
 
-  constructor( public http: HttpClient ) 
+  constructor() 
   {
     super() ;
 

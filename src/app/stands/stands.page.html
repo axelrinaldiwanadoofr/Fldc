@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-       <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-button (click)="accueilpage()"><ion-icon name="arrow-back"></ion-icon></ion-button>
     </ion-buttons>
-    <ion-title>stands</ion-title>
+    <ion-title>Liste des stands</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,9 +11,11 @@
   <ion-list>
     <ion-searchbar (ionInput)="onSearchStand($event)" placeholder="N° du Stand"></ion-searchbar>
     <br>
-    <button class="button-list"  color="rouge" ion-item *ngFor="let stand of stands" (click)="onSelectStand(stand)" style="text-align:center;font-weight:bold;">
-      <ion-icon class="icon-home" name="home"></ion-icon>
-      STAND {{stand.id}}
-    </button>
+    <ion-item *ngFor="let stand of stands">
+      <ion-button href="/stand/{{stand.id}}" style="text-align:center;font-weight:bold;">
+        <ion-icon class="icon-home" name="home"></ion-icon>
+        STAND {{stand.id}}
+      </ion-button>
+    </ion-item>
   </ion-list>
 </ion-content>
