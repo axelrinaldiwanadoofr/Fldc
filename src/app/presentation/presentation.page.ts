@@ -14,7 +14,7 @@ export class PresentationPage implements OnInit {
   }
    historiquepage()
   {
-    this.route.navigate(['/stands']);
+    this.route.navigate(['/historique']);
   }
   datepage()
   {
