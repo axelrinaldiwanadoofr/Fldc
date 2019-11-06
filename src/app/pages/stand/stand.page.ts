@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
+import { Marqueur } from '../../components/plan/plan.component' ;
+
 
 @Component({
   selector: 'app-stand',
@@ -61,5 +63,25 @@ export class StandPage implements OnInit
       this.sqlPrd.select(sqlCommand, [this.idStand], this.rdvs);
     }     
   }
+
+  onPlan()
+  {
+    let m = [new Marqueur( parseInt(this.idStand), "" )] ;
+    //this.navCtrl.push( PlansPage, {marqueurs: m} )
+  }
+
+  onFavoris()
+  {
+    this.favorisPrd.ajoute( parseInt(this.idStand) ) ;
+
+    let toast = this.toastCtrl.create({
+      message: 'Stand n° ' + this.idStand + ' ajouté aux favoris',
+      duration: 1000 
+    }).then( (toastData)=>
+    {
+      toastData.present();
+    });
+  }
+
 
 }

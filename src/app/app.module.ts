@@ -13,6 +13,8 @@ import { RemoteSqlProvider } from '../providers/remotesql/remotesql' ;
 import { WebSqlProvider } from '../providers/websql/websql';
 import { FavorisProvider } from '../providers/favoris/favoris';
 
+import { PlanComponent } from '../app/components/plan/plan.component' ;
+
 
 @NgModule({
   declarations: [AppComponent],

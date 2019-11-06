@@ -1,0 +1,13 @@
+<ion-segment [(ngModel)]="plan.nom">
+  <ion-segment-button *ngFor="let p of plans" value="{{p.nom}}" [hidden]="!p.afficheTitre">
+    {{p.titre}}
+  </ion-segment-button>
+</ion-segment>
+<ion-list>      
+  <ion-item *ngFor="let p of plans" [hidden]="p.nom!=plan.nom">
+    <ion-card (click)="onClick( $event )">
+      <img id="img_{{p.nom}}{{planId}}" src="{{p.image}}">
+      <div id="marqueurs_{{p.nom}}{{planId}}"></div>
+    </ion-card>
+  </ion-item>
+</ion-list>
