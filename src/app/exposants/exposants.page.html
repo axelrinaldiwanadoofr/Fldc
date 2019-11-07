@@ -16,6 +16,7 @@
         <ion-item class="finListe">
             <ion-label>Thèmes</ion-label>
             <ion-select full [(ngModel)]="recherche.themeId" >
+                <ion-select-option value="null"></ion-select-option>
                 <ion-select-option *ngFor="let t of themes" value="{{t.id}}">{{t.libelle}}</ion-select-option>
             </ion-select>
         </ion-item>
@@ -28,8 +29,10 @@
             <ion-thumbnail item-start *ngIf="e.image">
                 <img src="{{e.image}}">
             </ion-thumbnail>
-            <h2>{{e.nom}}</h2>
-            <p>Stand n° {{e.idStand}}</p>
+            <ion-label>
+                <h2>{{e.nom}}</h2>
+                <p>Stand n° {{e.idStand}}</p>
+            </ion-label>
         </ion-item>
         <br>
         <ion-button color="primary" expand="full" shape="round" [hidden]="!exposants.length || exposants.length>1" (click)="onPlan()"class="btn"  color="rouge">Afficher sur le plan</ion-button>

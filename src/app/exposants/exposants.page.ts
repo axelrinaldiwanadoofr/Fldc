@@ -44,7 +44,7 @@ export class ExposantsPage implements OnInit
     this.exposants = [] ;
     this.marqueurs = [] ;
 
-    if (this.recherche.libelle && this.recherche.themeId)
+    if (this.recherche.libelle && this.recherche.themeId != "null")
     {
       let libelle = this.recherche.libelle.toLocaleUpperCase();
 
@@ -83,7 +83,7 @@ export class ExposantsPage implements OnInit
         }) ;
       }) ;
     }
-    else if( this.recherche.themeId )
+    else if( this.recherche.themeId != "null" )
     {
       let sql = "SELECT stand_18.id as idStand, exposant_18.id, exposant_18.nom, exposant_18.image "
       sql += "FROM exposant_18 "
