@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'themes', loadChildren: './themes/themes.module#ThemesPageModule' },
   { path: 'stands', loadChildren: './stands/stands.module#StandsPageModule' },
   { path: 'stand/:id', loadChildren: './pages/stand/stand.module#StandPageModule' },
-  { path: 'historique', loadChildren: './historique/historique.module#HistoriquePageModule' }
+  { path: 'historique', loadChildren: './historique/historique.module#HistoriquePageModule' },
+  { path: 'plans', loadChildren: './pages/plans/plans.module#PlansPageModule' }
 ];
 @NgModule({
   imports: [

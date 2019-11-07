@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router' ;
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
 import { Marqueur } from '../../components/plan/plan.component' ;
-
 
 @Component({
   selector: 'app-stand',
@@ -27,7 +26,8 @@ export class StandPage implements OnInit
     type: string}> ;
 
 
-  constructor( private route:ActivatedRoute,     
+  constructor( private route:ActivatedRoute,  
+    private router: Router,   
     private sqlPrd: RemoteSqlProvider,
     private favorisPrd: FavorisProvider,
     private toastCtrl: ToastController ) 
@@ -66,8 +66,12 @@ export class StandPage implements OnInit
 
   onPlan()
   {
-    let m = [new Marqueur( parseInt(this.idStand), "" )] ;
-    //this.navCtrl.push( PlansPage, {marqueurs: m} )
+    let navigationExtras: NavigationExtras = {
+      state: {
+        marqueurs: [new Marqueur( parseInt(this.idStand), "" )] 
+      }
+    };
+    this.router.navigate(['plans'], navigationExtras);
   }
 
   onFavoris()

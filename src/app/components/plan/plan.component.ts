@@ -450,3 +450,16 @@ export class Marqueur
     this.titre = titre ;
   }
 }
+
+export class PlanMarqueur
+{
+  public idZone: number ;
+  public titre: string ;
+
+  constructor( idZone: number, titre: string )
+  {
+    this.idZone = idZone ;
+    this.titre = titre ;
+  }
+}
+
