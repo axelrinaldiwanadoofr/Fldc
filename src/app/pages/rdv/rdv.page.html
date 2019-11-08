@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>rdv</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/rdvs"></ion-back-button>
+    </ion-buttons>        
+    <ion-title>{{r.nom}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-list>                       
+      <ion-item class="Liste">  
+        <p>Stand n° <b>{{r.idStand}}</b> <span>le {{r.jour}} à {{r.heure}}</span></p>
+        <br>
+        <p>Type : <b>{{r.typeRdv}}</b></p>
+        <br>
+        <p>Exposant : <b>{{r.nomExposant}}</b></p>
+        <br>
+        <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
+        <br>
+        <h2 *ngIf="personne.length">Participants</h2>
+        <p *ngFor="let p of personne" style="white-space:initial;">{{p.nom}} {{p.prenom}}</p>
+        <br>
+        <p>{{r.duree}} pour {{r.age}}</p><br>              
+      </ion-item>   
+      <!--<button ion-button full (click)="onExposant(r)" class="btn">Plus d'informations</button>-->
+      <ion-button color="primary" expand="full" shape="round" (click)="onFavoris(r)">Ajouter aux favoris</ion-button> 
+      <ion-button color="primary" expand="full" shape="round" (click)="onRdvPlan(r)">Afficher sur le plan</ion-button>     
+  </ion-list>
 </ion-content>

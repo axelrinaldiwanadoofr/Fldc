@@ -25,7 +25,7 @@
     </ion-list>
     <ion-list>
         <ion-item-divider class="debutListe">Liste des exposants</ion-item-divider>
-        <ion-item *ngFor="let e of exposants" (click)="onExposantClick( e )">
+        <ion-item *ngFor="let e of exposants" href="/exposant/{{e.id}}">
             <ion-thumbnail item-start *ngIf="e.image">
                 <img src="{{e.image}}">
             </ion-thumbnail>

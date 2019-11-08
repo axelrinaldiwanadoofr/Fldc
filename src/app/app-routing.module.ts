@@ -18,14 +18,14 @@ const routes: Routes = [
   { path: 'auteurs', loadChildren: './auteurs/auteurs.module#AuteursPageModule' },
   { path: 'livres', loadChildren: './livres/livres.module#LivresPageModule' },
   { path: 'exposants', loadChildren: './exposants/exposants.module#ExposantsPageModule' },
-  { path: 'rdv', loadChildren: './rdv/rdv.module#RdvPageModule' },
+  { path: 'rdvs', loadChildren: './rdv/rdv.module#RdvPageModule' },
   { path: 'themes', loadChildren: './themes/themes.module#ThemesPageModule' },
   { path: 'stands', loadChildren: './stands/stands.module#StandsPageModule' },
   { path: 'stand/:id', loadChildren: './pages/stand/stand.module#StandPageModule' },
   { path: 'historique', loadChildren: './historique/historique.module#HistoriquePageModule' },
   { path: 'plans', loadChildren: './pages/plans/plans.module#PlansPageModule' },
-  { path: 'exposant', loadChildren: './pages/exposant/exposant.module#ExposantPageModule' },
-  { path: 'rdv', loadChildren: './pages/rdv/rdv.module#RdvPageModule' }
+  { path: 'exposant/:id', loadChildren: './pages/exposant/exposant.module#ExposantPageModule' },
+  { path: 'rdv/:id', loadChildren: './pages/rdv/rdv.module#RdvPageModule' }
 ];
 @NgModule({
   imports: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router' ;
+import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 import { Marqueur } from '../components/plan/plan.component' ;
 
@@ -10,19 +10,13 @@ import { Marqueur } from '../components/plan/plan.component' ;
 })
 export class ExposantsPage implements OnInit 
 {
-
-  accueilpage()
-  {
-    this.route.navigate(['']);
-  }
-
   private recherche: RechercheExposantCriteres ;
   private exposants: Array<any> ;
   private marqueurs: Array<Marqueur> ;
   private themes: Array<{id: string, libelle: string}> ;
 
   constructor(
-    private route: Router,
+    private router: Router,
     private sqlPrd: RemoteSqlProvider ) 
   {
     this.recherche = new RechercheExposantCriteres() ;
@@ -37,6 +31,11 @@ export class ExposantsPage implements OnInit
     let sql = "select id, libelle from theme_18 order by libelle";
     this.sqlPrd.select( sql, null, this.themes );
 
+  }
+
+  accueilpage()
+  {
+    this.router.navigate(['']);
   }
 
   onRecherche()
@@ -116,7 +115,12 @@ export class ExposantsPage implements OnInit
 
   onExposantClick( exposant ) 
   {
-    //this.navCtrl.push( ExposantPage, {id: exposant.id} ) ;
+    let navigationExtras: NavigationExtras = {
+      state: {
+        exposant: exposant 
+      }
+    };
+    this.router.navigate(['exposant'], navigationExtras);
   }
 
   onPlan()

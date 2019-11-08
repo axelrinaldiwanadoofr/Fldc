@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Exposant n° {{id}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/exposants"></ion-back-button>
+    </ion-buttons>    
+    <ion-title>Exposant n° {{id}} {{libelle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -30,7 +33,7 @@
         <p class="addFavorie" (click)="onFavorisRDV(r)"><ion-icon name="star" class="star"></ion-icon></p>
     </ion-item> 
     <br>
-    <ion-button ion-button full [hidden]="!stands.length" (click)="onPlan()" class="btn" color="rouge">Afficher sur le plan</ion-button>    
-    <ion-button class="btn" color="rouge" ion-button full (click)="onFavoris()">Ajouter aux favoris</ion-button>
+    <ion-button color="primary" expand="full" shape="round" [hidden]="!stands.length" (click)="onPlan()">Afficher sur le plan</ion-button>    
+    <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
   </ion-list>
 </ion-content>
