@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router' ;
+import { Router } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 import { Marqueur } from '../components/plan/plan.component' ;
 
@@ -83,7 +83,7 @@ export class ExposantsPage implements OnInit
         }) ;
       }) ;
     }
-    else if( this.recherche.themeId != "null" )
+    else if( this.recherche.themeId && this.recherche.themeId != "null" )
     {
       let sql = "SELECT stand_18.id as idStand, exposant_18.id, exposant_18.nom, exposant_18.image "
       sql += "FROM exposant_18 "
@@ -106,7 +106,7 @@ export class ExposantsPage implements OnInit
     }
     else
     {
-      let sql = "select idStand, id, nom "
+      let sql = "select idStand, exposant_18.id, exposant_18.nom, exposant_18.image "
       sql += "from exposant_18 "
       sql += "JOIN etresur_18 ON id = idExposant " 
       sql += "order by nom"
