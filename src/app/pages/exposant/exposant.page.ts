@@ -106,7 +106,7 @@ export class ExposantPage implements OnInit
 	  */
 	onRdv(r: any)
 	{
-		this.navCtrl.push(UnRendezVousPage, {rdv: r});
+		//this.navCtrl.push(UnRendezVousPage, {rdv: r});
 	}
 
 	/**

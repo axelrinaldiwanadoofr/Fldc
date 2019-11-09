@@ -9,10 +9,11 @@ import { PlanComponent, Plan, Marqueur } from '../../components/plan/plan.compon
   templateUrl: './plans.page.html',
   styleUrls: ['./plans.page.scss'],
 })
+
 export class PlansPage implements OnInit 
 {
 
-  @ViewChild( PlanComponent, {static: false} ) private plan: PlanComponent ;
+  @ViewChild( PlanComponent, {static: true} ) private plan: PlanComponent ;
   
   constructor( private router: Router, private route:ActivatedRoute ) 
   {
@@ -26,7 +27,6 @@ export class PlansPage implements OnInit
     this.plan.addPlan( new Plan("hall3", "N° 3", "assets/plans/hall3.png") ) ;      
     this.plan.addPlan( new Plan("hall4", "N° 4", "assets/plans/hall4.png") ) ;      
     this.plan.addPlan( new Plan("hall5", "N° 5", "assets/plans/hall5.png") ) ;      
-
 
     let marqueurs: Array<Marqueur> ;
 

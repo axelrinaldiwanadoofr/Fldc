@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular' ;
 export class PlanComponent implements OnInit 
 {
 
-  @ViewChildren( "Marqueur" ) public marqueurs : Array<Marqueur>;
+  //@ViewChildren( "Marqueur" ) public marqueurs : Array<Marqueur>;
 
   @Input( 'newzone') public newZoneOk: string ;
   @Input( 'idplaceholder') public idPlaceholder: string ;
@@ -24,6 +24,7 @@ export class PlanComponent implements OnInit
   private coord: RectCoord ;
 
   // Propriétés des marqueurs
+  private marqueurs: Array<Marqueur> ;
   private marqueurImage: string ;
   private marqueurWidth: number ;
   private marqueurHeight: number ;
