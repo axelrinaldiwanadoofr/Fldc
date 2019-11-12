@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 import { Marqueur } from '../components/plan/plan.component' ;
+import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-exposants',
@@ -17,7 +18,8 @@ export class ExposantsPage implements OnInit
 
   constructor(
     private router: Router,
-    private sqlPrd: RemoteSqlProvider ) 
+    private sqlPrd: RemoteSqlProvider,
+    private nav: Location ) 
   {
     this.recherche = new RechercheExposantCriteres() ;
     this.exposants = [] ;
@@ -126,6 +128,11 @@ export class ExposantsPage implements OnInit
   onPlan()
   {
     //this.navCtrl.push( PlansPage, {marqueurs: this.marqueurs} )
+  }
+
+  onGoBack()
+  {
+    this.nav.back() ;
   }
 }
 

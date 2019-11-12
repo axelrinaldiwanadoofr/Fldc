@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-rdv',
   templateUrl: './rdv.page.html',
   styleUrls: ['./rdv.page.scss'],
 })
-export class RdvPage implements OnInit {
+export class RdvPage implements OnInit 
+{
 
-  constructor() { }
+  constructor( private nav: Location ) 
+  { 
 
-  ngOnInit() {
   }
 
+  ngOnInit() 
+  {
+  }
+
+  onGoBack()
+  {
+    this.nav.back() ;
+  }
 }
