@@ -22,7 +22,7 @@
     <br>
                         
     <ion-item-divider class="Liste" [hidden]="!rdvs.length">Liste des rendez vous</ion-item-divider>
-    <ion-item *ngFor="let r of rdvs" routerLink="rdv/{{r.id}}">
+    <ion-item *ngFor="let r of rdvs" (click)="onRdv(r)">
         <p style="white-space:initial;"><b>{{r.nom}}</b> ({{r.typeRdv}})</p>  
         <br>
         <p [hidden]="!r.duree"><b>le {{r.jour}} à {{r.heure}}</b></p>

@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
   	 <ion-buttons slot="start">
-        <ion-back-button (click)="onGoBack()"></ion-back-button>
-      </ion-buttons>   	
+      <ion-button (click)="accueilpage()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>   	
     <ion-title>Rechercher un/des rendez-vous</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -46,17 +46,18 @@
   <ion-list>
     <ion-item *ngFor="let r of mesRDV">
       <button item-end small icon-only ion-button color="orange" (click)="onFavoris( r )"><ion-icon color="primary" name="star"></ion-icon></button>
-      <ion-card full routerLink="rdv/{{r.id}}">
-        <ion-card-header>
-            <ion-card-title>{{r.nom}}</ion-card-title>
-            <ion-card-subtitle>{{r.nomExposant}}</ion-card-subtitle>
-          </ion-card-header>        
+      <ion-card (click)="onUnRendezVous(r)">
         <ion-card-content>
-          <p style="white-space:initial;">pour {{r.age}} sur le stand n° <b>{{r.idStand}}</b></p><br>
-          <p><b>{{r.jour}} <span [hidden]="r.duree=='en continu'">{{r.heure}} durée: {{r.duree}} minutes</span></b></p> 
+          <p style="white-space:initial;">
+          <b>{{r.nom}}</b></p> 
+          <br>
+          <p style="white-space:initial;"><b>{{r.nomExposant}}</b></p>
+          <br>
+          <p style="white-space:initial;">{{r.duree}} pour {{r.age}} sur le stand n° <b>{{r.idStand}}</b></p><br>
+          <p><b>{{r.jour}} <span [hidden]="r.duree=='en continu'">{{r.heure}}</span></b></p> 
         </ion-card-content>
       </ion-card>
     </ion-item>    
-    <ion-button full [hidden]="mesRDV.length>5 || !mesRDV.length" (click)="onPlan()">Afficher sur le plan</ion-button>               
+    <!--<button ion-button full [hidden]="mesRDV.length>5 || !mesRDV.length" (click)="onPlan()">Afficher sur le plan</button>-->                   
   </ion-list>
 </ion-content>

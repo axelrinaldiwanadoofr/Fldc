@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router' ;
-import { Location } from '@angular/common' ;
 
 //import { StandListExposantPage } from '../../pages/stand-list-exposant/stand-list-exposant' ;
 import { PlanComponent, Plan, Marqueur } from '../../components/plan/plan.component' ;
@@ -16,10 +15,7 @@ export class PlansPage implements OnInit
 
   @ViewChild( PlanComponent, {static: true} ) private plan: PlanComponent ;
   
-  constructor( 
-    private router: Router, 
-    private route:ActivatedRoute,
-    private nav: Location ) 
+  constructor( private router: Router, private route:ActivatedRoute ) 
   {
   }
 
@@ -50,11 +46,6 @@ export class PlansPage implements OnInit
         }
       }
     });    
-  }
-
-  onGoBack()
-  {
-    this.nav.back() ;
   }
 
   onSelectStand( event )

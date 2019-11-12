@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 export class AuteursPage implements OnInit {
 
   constructor(private route: Router) { }
-  accueilpage()
+  tab3page()
   {
-    this.route.navigate(['']);
+    this.route.navigate(['/tab3']);
   }
   ngOnInit() {
   }
