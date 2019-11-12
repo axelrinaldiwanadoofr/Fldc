@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'historique', loadChildren: './historique/historique.module#HistoriquePageModule' },
   { path: 'plans', loadChildren: './pages/plans/plans.module#PlansPageModule' },
   { path: 'exposant/:id', loadChildren: './pages/exposant/exposant.module#ExposantPageModule' },
-  { path: 'rdv/:id', loadChildren: './pages/rdv/rdv.module#RdvPageModule' }
+  { path: 'rdvs/rdv/:id', loadChildren: './pages/rdv/rdv.module#RdvPageModule' }
 ];
 @NgModule({
   imports: [

@@ -57,7 +57,8 @@ export class RdvPage implements OnInit
     this.mesRDV=[];
   }
 
-  ngOnInit () {
+  ngOnInit () 
+  {
     this.sqlPrd.select( "SELECT * FROM theme_18 ORDER BY libelle", null, this.themes) ;
 
     let sql = "SELECT distinct trancheage_18.id as id, libelle";
@@ -67,9 +68,6 @@ export class RdvPage implements OnInit
     this.sqlPrd.select( sql, null, this.ages ) ;
 
     this.sqlPrd.select( "SELECT * FROM typerdv_18 ORDER BY nom", null, this.typesRDV) ;
-
-    console.log(this.typesRDV);
-
   }
 
   onSearch() {
@@ -83,8 +81,8 @@ export class RdvPage implements OnInit
     sql +=" FROM trancheage_18";
     sql +=" JOIN rdv_18 ON trancheage_18.id = rdv_18.idTrancheAge";
     sql +=" JOIN typerdv_18 ON rdv_18.idTypeRDV = typerdv_18.id";
-    sql +=" JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
-    sql +=" JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
+    sql +=" LEFT JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
+    sql +=" LEFT JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
     sql +=" JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
     sql +=" WHERE jour = '" + this.unJour + "'"; 
 
@@ -110,11 +108,6 @@ export class RdvPage implements OnInit
     sql += " order by jour desc, heure";
 
     this.sqlPrd.select(sql, null, this.mesRDV);
-  }
-
-  onUnRendezVous( r )
-  {
-//    this.navCtrl.push( UnRendezVousPage, {rdv: r}) ;
   }
 
   onPlan()

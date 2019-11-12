@@ -1,25 +1,40 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button (click)="onGoBack()"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>        
-    <ion-title>{{r.nom}}</ion-title>
+    <ion-title>({{r.id}}) {{r.titre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>                       
-      <ion-item class="Liste">  
-        <p>Stand n° <b>{{r.idStand}}</b> <span>le {{r.jour}} à {{r.heure}}</span></p>
-        <br>
-        <p>Type : <b>{{r.typeRdv}}</b></p>
-        <br>
-        <p>Exposant : <b>{{r.nomExposant}}</b></p>
-        <br>
-        <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
-        <br>
-        <h2 *ngIf="personne.length">Participants</h2>
-        <p *ngFor="let p of personne" style="white-space:initial;">{{p.nom}} {{p.prenom}}</p>
+      <ion-item>  
+        <ion-label>
+          Stand n° <b>{{r.idStand}}</b> 
+        </ion-label>
+      </ion-item>
+      <ion-item>  
+        <ion-label>
+          le {{r.jour}} à {{r.heure}}
+        </ion-label>
+      </ion-item>  
+      <ion-item>  
+        <ion-label>
+          Type : <b>{{r.type}}</b>
+        </ion-label>
+      </ion-item>  
+      <ion-item>
+        <ion-label>
+          Exposant : <b>{{r.nom}}</b>
+        </ion-label>
+      </ion-item>
+      <ion-item [hidden]="!r.description">
+        <p style="white-space:initial;">{{r.description}}</p>
+      </ion-item>
+      <ion-item>
+        <h2 *ngIf="personnes.length">Participants</h2>
+        <p *ngFor="let p of personnes" style="white-space:initial;">{{p.nom}} {{p.prenom}}</p>
         <br>
         <p>{{r.duree}} pour {{r.age}}</p><br>              
       </ion-item>   
