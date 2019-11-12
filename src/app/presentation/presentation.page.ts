@@ -21,16 +21,8 @@ export class PresentationPage implements OnInit {
       this.route.navigate(['/themes']);
   }
   themepage()
-     {
-         this.route.navigate(['/rdv']);
-     }
-  archivepage()
   {
-      this.route.navigate(['/exposants']);
-  }
-  premierchappage()
-  {
-      this.route.navigate(['/exposants']);
+      this.route.navigate(['/theme2019']);
   }
   ngOnInit() {
   }
