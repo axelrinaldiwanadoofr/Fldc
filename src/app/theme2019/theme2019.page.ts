@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-theme2019',
   templateUrl: './theme2019.page.html',
@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Theme2019Page implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: Router) { }
+  presentationpage()
+  {
+    this.route.navigate(['/presentation']);
+  }
   ngOnInit() {
   }
 

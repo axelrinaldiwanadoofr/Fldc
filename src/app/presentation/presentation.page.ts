@@ -18,7 +18,7 @@ export class PresentationPage implements OnInit {
   }
   datepage()
   {
-      this.route.navigate(['/themes']);
+      this.route.navigate(['/dateimportante']);
   }
   themepage()
   {
