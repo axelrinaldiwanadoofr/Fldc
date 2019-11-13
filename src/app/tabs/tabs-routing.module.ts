@@ -37,7 +37,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
+      /*{
         path: 'map',
         children: [
           {
@@ -46,7 +46,7 @@ const routes: Routes = [
               import('../map/map.module').then(m => m.MapPageModule)
           }
         ]
-      },
+      },*/
       {
         path: '',
         redirectTo: '/tabs/tab2',
