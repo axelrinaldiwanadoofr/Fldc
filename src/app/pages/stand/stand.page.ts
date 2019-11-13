@@ -30,7 +30,7 @@ export class StandPage implements OnInit
     private router: Router,   
     private sqlPrd: RemoteSqlProvider,
     private favorisPrd: FavorisProvider,
-    private toastCtrl: ToastController ) 
+    private toastCtrl: ToastController)
   {
     this.exposants = [] ;
     this.rdvs = [] ;
@@ -86,6 +86,4 @@ export class StandPage implements OnInit
       toastData.present();
     });
   }
-
-
 }
