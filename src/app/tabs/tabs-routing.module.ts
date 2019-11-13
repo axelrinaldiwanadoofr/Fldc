@@ -38,12 +38,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'map',
+        path: 'plans',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../map/map.module').then(m => m.MapPageModule)
+              import('../pages/plans/plans.module').then(m => m.PlansPageModule)
           }
         ]
       },
