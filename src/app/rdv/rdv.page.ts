@@ -149,9 +149,9 @@ export class RdvPage implements OnInit
     })
   }
 
-  accueilpage()
+  presentationpage()
   {
-    this.router.navigate(['']);
+    this.router.navigate(['/tab3']);
   }
 
 }
