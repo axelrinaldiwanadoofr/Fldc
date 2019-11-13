@@ -4,7 +4,6 @@ import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
 import { Marqueur } from '../../components/plan/plan.component' ;
-import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-stand',
@@ -31,8 +30,7 @@ export class StandPage implements OnInit
     private router: Router,   
     private sqlPrd: RemoteSqlProvider,
     private favorisPrd: FavorisProvider,
-    private toastCtrl: ToastController,
-    private nav: Location ) 
+    private toastCtrl: ToastController)
   {
     this.exposants = [] ;
     this.rdvs = [] ;
@@ -87,10 +85,5 @@ export class StandPage implements OnInit
     {
       toastData.present();
     });
-  }
-
-  onGoBack()
-  {
-    this.nav.back() ;
   }
 }

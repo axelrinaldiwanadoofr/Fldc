@@ -59,7 +59,7 @@ export class PlansPage implements OnInit
 
   onSelectStand( event )
   {
-    //this.navCtrl.push( StandListExposantPage, {numStand: event.idZone } ) ;
+    this.router.navigate( ['/stand/' + event.idZone] ) ;
   }  
 }
 

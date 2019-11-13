@@ -100,15 +100,6 @@ export class ExposantPage implements OnInit
     this.router.navigate(['plans'], navigationExtras);
 	}
 
- 	/**
-	  * Method qui permet d'allez ver un rendez-vous.
-	  * @param r 
-	  */
-	onRdv(r: any)
-	{
-		//this.navCtrl.push(UnRendezVousPage, {rdv: r});
-	}
-
 	/**
 	 * method qui permet d'ajouter au favorie un exposant.
 	 */

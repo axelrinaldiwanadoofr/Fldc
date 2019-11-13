@@ -86,7 +86,7 @@ export class PlanComponent implements OnInit
       // Affiche les marqueurs
       if( this.marqueurs.length )
       {
-        this.cacheTousLesTitresDePlan() ;
+        //this.cacheTousLesTitresDePlan() ;
 
         this.marqueurs.forEach( (m)=>
         {

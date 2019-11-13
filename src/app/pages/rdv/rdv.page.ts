@@ -75,7 +75,7 @@ export class RdvPage implements OnInit
 	{
     let navigationExtras: NavigationExtras = {
       state: {
-        marqueurs: [new Marqueur( this.r.idStand, this.r.nomExposant )] 
+        marqueurs: [new Marqueur( this.r.idStand, "Rdv: " + this.r.titre )] 
       }
     };
     this.router.navigate(['plans'], navigationExtras);
