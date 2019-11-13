@@ -37,8 +37,8 @@ export class AppComponent {
         icon: 'search'
     },
     {
-        title: 'Carte',
-        url: 'tabs/map',
+        title: 'Plans',
+        url: 'tabs/plans',
         icon: 'map'
     },
     {
