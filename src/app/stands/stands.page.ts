@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
-import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-stands',
@@ -19,10 +18,7 @@ export class StandsPage implements OnInit
   public standsOriginalList:Array<{id:string}>;
   
 
-  constructor( 
-    private route: Router, 
-    private sqlPrd:RemoteSqlProvider,
-    private nav: Location ) 
+  constructor(private route: Router, private sqlPrd:RemoteSqlProvider) 
   { 
     this.stands=[];
     this.standsOriginalList = [] ;
@@ -30,9 +26,9 @@ export class StandsPage implements OnInit
     this.numMax = 9999 ;
   }
 
-  onGoBack()
+  accueilpage()
   {
-    this.nav.back() ;
+    this.route.navigate(['']);
   }
 
   ngOnInit() 

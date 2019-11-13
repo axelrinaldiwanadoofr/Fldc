@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationExtras } from '@angular/router' ;
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
+import { Marqueur } from '../../components/plan/plan.component' ;
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
-import { Marqueur } from '../../components/plan/plan.component' ;
-
 
 @Component({
   selector: 'app-rdv',
@@ -81,25 +80,5 @@ export class RdvPage implements OnInit
     this.router.navigate(['plans'], navigationExtras);
 
 	}
-
-	/**
-	 * Permet d'ajouter au favorie un rendez-vous.
-	 * @param r 
-	 */
-	onFavoris()
-	{
-		let str = "RDV  " + this.r.titre + " " + this.r.jour ;
-		if( this.r.duree == "en continu") str += " en continu" ;
-		else str += " à " + this.r.heure ;
-
-		this.favorisPrd.ajoute( this.r.idStand, 999, str ) ;
-
-		let toast = this.toastCtrl.create({
-			message: 'Rdv ajouté aux favoris',
-			duration: 1000 
-    }).then( (toastData)=>
-    {
-      toastData.present() ;
-    })
-	}
+  
 }

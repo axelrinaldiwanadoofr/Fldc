@@ -35,9 +35,9 @@ export class ExposantsPage implements OnInit
 
   }
 
-  accueilpage()
+  presentationpage()
   {
-    this.router.navigate(['']);
+    this.router.navigate(['/tab3']);
   }
 
   onRecherche()
