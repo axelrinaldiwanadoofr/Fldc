@@ -76,10 +76,23 @@ export class StandPage implements OnInit
 
   onFavoris()
   {
-    this.favorisPrd.ajoute( parseInt(this.idStand) ) ;
+    this.favorisPrd.ajoute( parseInt(this.idStand), null, null, "Stand n° " + this.idStand ) ;
 
     let toast = this.toastCtrl.create({
       message: 'Stand n° ' + this.idStand + ' ajouté aux favoris',
+      duration: 1000 
+    }).then( (toastData)=>
+    {
+      toastData.present();
+    });
+  }
+
+  onFavorisRDV( r )
+  {
+    this.favorisPrd.ajoute( parseInt(this.idStand), null, r.id, "Rdv: " + r.nom + " " + r.jour + " " + r.heure + " stand n° " + r.idStand  ) ;
+    
+    let toast = this.toastCtrl.create({
+      message: 'RDV n° ' + r.id + ' ajouté aux favoris',
       duration: 1000 
     }).then( (toastData)=>
     {

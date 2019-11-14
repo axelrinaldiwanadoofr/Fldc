@@ -55,7 +55,8 @@ export class AppModule
 
     WebSqlProvider.setWebSql( "FLC", "1.0", "Festival du livre", 1000*1024, (prd)=>
     {
-      prd.createTable( "favoris", {idStand: "text", idExposant: "text", nomExposant: "text"}) ;
+      //prd.exec( 'DROP TABLE favoris') ;
+      prd.createTable( "favoris", {idStand: "text", idExposant: "text", idRdv: "text", libelle: "text"}) ;
     });
   }
 }

@@ -22,8 +22,8 @@
     <br>
                         
     <ion-item-divider [hidden]="!rdvs.length">Liste des rendez vous</ion-item-divider>
-    <ion-item *ngFor="let r of rdvs" routerLink="/rdv/{{r.id}}">
-      <ion-label class="ion-text-wrap">
+    <ion-item *ngFor="let r of rdvs">
+      <ion-label class="ion-text-wrap" routerLink="/rdv/{{r.id}}">
         <ion-text color="primary">
           <h2>{{r.nom}}</h2>
         </ion-text>
@@ -36,7 +36,7 @@
             <p>Durée: {{r.duree}} pour {{r.age}}</p>
           </ion-text>
         </ion-label>      
-        <ion-icon name="star" class="star" (click)="onFavorisRDV(r)"></ion-icon>
+        <ion-icon name="star" class="star" (click)="onFavorisRdv(r)"></ion-icon>
     </ion-item> 
     <ion-button color="primary" expand="full" shape="round" [hidden]="!stands.length" (click)="onPlan()">Afficher sur le plan</ion-button>    
     <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>

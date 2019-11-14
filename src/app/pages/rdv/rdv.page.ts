@@ -81,4 +81,16 @@ export class RdvPage implements OnInit
 
 	}
   
+	onFavoris(r)
+	{
+    this.favorisPrd.ajoute( r.idStand, null, r.id, "Rdv: " + r.titre + " " + r.jour + " " + r.heure ) ; 
+    
+		let toast = this.toastCtrl.create({
+			message: 'Rendez vous ' + r.titre + ' ajouté aux favoris',
+			duration: 1000 
+    }).then( (toastData)=>
+    {
+      toastData.present();
+    }) ;    
+  }
 }

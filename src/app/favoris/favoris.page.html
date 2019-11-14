@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-button (click)="tab3page()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
     </ion-buttons> 	
     <ion-title>Favoris</ion-title>
   </ion-toolbar>
@@ -10,11 +10,13 @@
 <ion-content>
     <ion-list no-border>
         <ion-item ion-item *ngFor="let f of favoris">
-            <p style="white-space:initial;" (click)="onFavorisClick( f )">
-                <b>Stand n° {{f.idStand}}</b> <span *ngIf='f.idExposant'>{{f.nomExposant}}</span>
-            </p>
-            <button ion-button  item-end (click)="onRemoveFavorisClick( f )" class="btnSuppr" color="rouge" > <ion-icon name="md-trash"></ion-icon></button>
+          <ion-label (click)="onFavorisClick( f )">
+            <ion-text>
+                {{f.libelle}}
+            </ion-text>
+          </ion-label>
+            <ion-button item-end (click)="onRemoveFavorisClick( f )"> <ion-icon name="md-trash"></ion-icon></ion-button>
         </ion-item>   
     </ion-list>
-    <button ion-button full (click)="onPlan()"class="btn" color="rouge">Afficher sur le plan</button> 
+    <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button> 
 </ion-content>

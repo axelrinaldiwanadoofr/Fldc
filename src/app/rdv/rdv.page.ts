@@ -133,7 +133,7 @@ export class RdvPage implements OnInit
     if( r.duree == "en continu") str += " en continu" ;
     else str += " à " + r.heure ;
 
-    this.favorisPrd.ajoute( r.idStand, 999, str ) ;
+    this.favorisPrd.ajoute( r.idStand, null, r.id, "Rdv: " + r.nom + " " + r.jour + " " + r.heure + " stand n° " + r.idStand ) ;
 
     let toast = this.toastCtrl.create({
       message: 'Rdv ajouté aux favoris',

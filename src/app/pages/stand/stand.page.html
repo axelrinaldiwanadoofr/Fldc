@@ -14,17 +14,24 @@
       {{e.nom}}
     </ion-item>
     <br>   
-    <ion-item-divider class="Liste">Liste des rendez vous</ion-item-divider>
-    <ion-item *ngFor="let r of rdvs" (click)="onRdv(r)"><!--(click)="onRdv(r)"-->
-      <p style="white-space:initial;"><b>{{r.nom}}</b> ({{r.typeRdv}})</p>  
-      <br>
-      <p [hidden]="!r.duree"><b>le {{r.jour}} à {{r.heure}}</b></p>
-      <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
-      <br>
-      <p>{{r.duree}} pour {{r.age}}</p><br>
-      <p class="addFavorie" (click)="onFavorisRDV(r)"><ion-icon name="star" class="star"></ion-icon></p>
+    <!--<ion-item-divider [hidden]="!rdvs.length">Liste des rendez vous</ion-item-divider>-->
+    <ion-item *ngFor="let r of rdvs">
+      <ion-label class="ion-text-wrap" routerLink="/rdv/{{r.id}}">
+        <ion-text color="primary">
+          <h2>{{r.nom}}</h2>
+        </ion-text>
+        <p>Type: {{r.typeRdv}} </p>
+        <ion-text color="secondary">
+          <p [hidden]="!r.duree"><b>le {{r.jour}} à {{r.heure}}</b></p>
+          <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
+        </ion-text>
+        <ion-text color="tertiary">
+          <p>Durée: {{r.duree}} pour {{r.age}}</p>
+        </ion-text>
+      </ion-label>      
+      <ion-icon name="star" class="star" (click)="onFavorisRDV(r)"></ion-icon>
     </ion-item> 
-    <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>            
-    <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>     
+    <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>    
+    <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
   </ion-list>
 </ion-content>

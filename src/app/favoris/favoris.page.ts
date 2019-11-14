@@ -15,7 +15,7 @@ import { FavorisProvider } from '../../providers/favoris/favoris' ;
 export class FavorisPage implements OnInit 
 {
 
-  private favoris: Array<{idStand: number, idExposant: number, nomExposant: string}> ;
+  private favoris: Array<{idStand: number, idExposant: number, idRdv: number, libelle: string}> ;
   
   constructor(
     private router: Router,
@@ -28,7 +28,7 @@ export class FavorisPage implements OnInit
 
   ngOnInit()
   {
-    this.localSql.select( "select * from favoris order by nomExposant", null, this.favoris ) ;
+    this.localSql.select( "select * from favoris", null, this.favoris ) ;
   }
 
   onPlan()
@@ -36,7 +36,8 @@ export class FavorisPage implements OnInit
     let marqueurs = [] ;
     this.favoris.forEach( (f)=>
     {
-      if( f.nomExposant ) marqueurs.push( new Marqueur( f.idStand, f.nomExposant ) ) ;
+      if( f.idExposant ) marqueurs.push( new Marqueur( f.idStand, f.libelle ) ) ;
+      else if( f.idRdv ) marqueurs.push( new Marqueur( f.idStand, f.libelle ) ) ;
       else marqueurs.push( new Marqueur( f.idStand, "" ) ) ;
     });
 
@@ -54,9 +55,13 @@ export class FavorisPage implements OnInit
       {
         this.router.navigate( ['/exposant/' + f.idExposant] ) ;
       }
-      else 
+      else if( f.idRdv )
       {
-      this.router.navigate( ['/stand/' + f.idStand] ) ;
+        this.router.navigate( ['/rdv/' + f.idRdv] ) ;
+      }
+      else
+      {
+        this.router.navigate( ['/stand/' + f.idStand] ) ;
       }
   }
 

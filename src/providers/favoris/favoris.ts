@@ -18,9 +18,9 @@ export class FavorisProvider
       console.log('Charge FavorisProvider Provider');
     }
 
-    ajoute( idStand: number, idExposant: number=null, nomExposant: string=null )
+    ajoute( idStand: number, idExposant: number=null, idRdv: number=null, libelle: string=null )
     {
-      let favoris = {idStand: idStand, idExposant: idExposant, nomExposant: nomExposant } ;
+      let favoris = {idStand: idStand, idExposant: idExposant, idRdv: idRdv, libelle: libelle } ;
 
       if( idExposant )
       {
@@ -29,6 +29,15 @@ export class FavorisProvider
         {
           if( !data.rows[0].nb ) this.localSql.insert( "favoris", favoris ) ;
           else this.localSql.update( "favoris", ["idStand","idExposant"], favoris ) ;
+        }) ;
+      }
+      else if( idRdv )
+      {
+        return this.localSql.select( "select count(*) as nb from favoris where idStand=? and idRdv=?", 
+        [idStand,idRdv] ).then( (data)=>
+        {
+          if( !data.rows[0].nb ) this.localSql.insert( "favoris", favoris ) ;
+          else this.localSql.update( "favoris", ["idStand","idRdv"], favoris ) ;
         }) ;
       }
       else
@@ -42,13 +51,17 @@ export class FavorisProvider
       }      
     }
 
-    supprime( idStand: number, idExposant: number=null )
+    supprime( idStand: number, idExposant: number=null, idRdv: number=null )
     {
-      let favoris = {idStand: idStand, idExposant: idExposant } ;
+      let favoris = {idStand: idStand, idExposant: idExposant, idRdv: idRdv } ;
 
       if( idExposant )
       {
         return this.localSql.delete( "favoris", ["idStand","idExposant"], favoris ) ;
+      }
+      else if( idRdv )
+      {
+        return this.localSql.delete( "favoris", ["idStand","idRdv"], favoris ) ;
       }
       else
       {

@@ -107,7 +107,7 @@ export class ExposantPage implements OnInit
 	{
 		this.stands.forEach((s) =>
 		{
-			this.favorisPrd.ajoute( s.numStand, this.id, this.libelle ) ;      
+			this.favorisPrd.ajoute( s.numStand, this.id, null, "Exposant: " + this.libelle + " stand n° " + s.numStand ) ;      
 		});
 
 		/**
@@ -122,5 +122,20 @@ export class ExposantPage implements OnInit
     }) ;
 	}
 
+	onFavorisRdv(r)
+	{
+		this.favorisPrd.ajoute( r.idStand, null, r.id, "Rdv: " + r.nom + " " + r.jour + " " + r.heure + " stand n° " + r.idStand ) ;      
+
+		/**
+		 * Permet de créer un message (toast).
+		 */
+		let toast = this.toastCtrl.create({
+			message: 'Rendez vous ' + r.nom + ' ajouté aux favoris',
+			duration: 1000 
+    }).then( (toastData)=>
+    {
+      toastData.present();
+    }) ;
+	}
 
 }
