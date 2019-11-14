@@ -146,7 +146,7 @@ export class RdvPage implements OnInit
 
   presentationpage()
   {
-    this.router.navigate(['/tab3']);
+    this.router.navigate(['/tabs/tab3']);
   }
 
 }

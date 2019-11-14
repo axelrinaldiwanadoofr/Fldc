@@ -77,7 +77,7 @@ export class RdvPage implements OnInit
         marqueurs: [new Marqueur( this.r.idStand, "Rdv: " + this.r.titre )] 
       }
     };
-    this.router.navigate(['plans'], navigationExtras);
+    this.router.navigate(['/tabs/plans'], navigationExtras);
 
 	}
   

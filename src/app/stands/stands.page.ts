@@ -28,7 +28,7 @@ export class StandsPage implements OnInit
 
   presentationpage()
   {
-    this.route.navigate(['/tab3']);
+    this.route.navigate(['/tabs/tab3']);
   }
 
   ngOnInit() 
