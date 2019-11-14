@@ -46,7 +46,7 @@
   <ion-list>
     <ion-item *ngFor="let r of mesRDV">
       <button item-end small icon-only ion-button color="orange" (click)="onFavoris( r )"><ion-icon color="primary" name="star"></ion-icon></button>
-      <ion-card (click)="onUnRendezVous(r)">
+      <ion-card routerLink='/rdv/{{r.id}}'>
         <ion-card-content>
           <p style="white-space:initial;">
           <b>{{r.nom}}</b></p> 

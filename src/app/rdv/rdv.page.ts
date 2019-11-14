@@ -80,11 +80,11 @@ export class RdvPage implements OnInit
       //
       let sql = "SELECT DISTINCT rdv_18.id, rdv_18.idStand, jour, heure, duree, rdv_18.nom, nbMaxPlace, rdv_18.description as description, trancheage_18.libelle as age, typerdv_18.nom as type, e.nom as nomExposant, idExposant";
       sql +=" FROM trancheage_18";
-      sql +=" JOIN rdv_18 ON trancheage_18.id = rdv_18.idTrancheAge";
-      sql +=" JOIN typerdv_18 ON rdv_18.idTypeRDV = typerdv_18.id";
-      sql +=" JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
-      sql +=" JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
-      sql +=" JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
+      sql +=" LEFT JOIN rdv_18 ON trancheage_18.id = rdv_18.idTrancheAge";
+      sql +=" LEFT JOIN typerdv_18 ON rdv_18.idTypeRDV = typerdv_18.id";
+      sql +=" LEFT JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
+      sql +=" LEFT JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
+      sql +=" LEFT JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
       sql +=" WHERE jour = '" + this.unJour + "'"; 
 
       if(this.unTheme != 0){
@@ -109,11 +109,6 @@ export class RdvPage implements OnInit
       sql += " order by jour desc, heure";
 
       this.sqlPrd.select(sql, null, this.mesRDV);
-  }
-
-  onUnRendezVous( r )
-  {
-//    this.navCtrl.push( UnRendezVousPage, {rdv: r}) ;
   }
 
   onPlan()
