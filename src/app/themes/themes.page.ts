@@ -10,7 +10,7 @@ export class ThemesPage implements OnInit {
   constructor(private route: Router) { }
   tab3page()
   {
-    this.route.navigate(['/tab3']);
+    this.route.navigate(['/tabs/tab3']);
   }
   ngOnInit() {
   }

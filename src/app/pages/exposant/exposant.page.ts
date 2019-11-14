@@ -97,7 +97,7 @@ export class ExposantPage implements OnInit
         marqueurs: marqueurs 
       }
     };
-    this.router.navigate(['plans'], navigationExtras);
+    this.router.navigate(['/tabs/plans'], navigationExtras);
 	}
 
 	/**
