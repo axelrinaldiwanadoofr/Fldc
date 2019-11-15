@@ -1,0 +1,32 @@
+<ion-list>
+  <ion-item-divider class="debutListe">Liste des livres</ion-item-divider> <!-- séparateur "Liste des livres" -->
+  <ion-item *ngFor="let l of livres" (click)="onLivreClick(l)"> <!-- pour chaque ligne de livre affichée il y a: -->
+      <ion-thumbnail item-start [hidden]="!l.image">
+          <img src={{l.image}}> <!-- la couverture -->
+      </ion-thumbnail> 
+      <ion-label>
+        <ion-text>
+            <h2> {{l.titre}} </h2>
+        </ion-text>
+        <ion-text  color="primary">
+          <p> 
+              Auteur: <b>{{l.auteurPrenom}} {{l.auteurNom}}</b>
+          </p>
+          <p> 
+              Editeur: {{l.editeur}} <!-- le nom de l'auteur et chez quel éditeur il a été publié-->
+          </p>
+          <p>
+              Thème: {{l.libelle}} <!-- le nom du thème -->
+          </p>
+          <p [hidden]="hideExposant">
+              Exposant: {{l.nom}} <!-- le nom de l'exposant chez qui on peut le trouver -->
+          </p>
+          <p>
+              Stand n° {{l.numStand}} <!-- le num du stand où on peut le trouver -->
+          </p>
+        </ion-text>
+      </ion-label>    
+      <ion-icon name="star" class="star" (click)="onFavorisLivre(l)"></ion-icon>       
+  </ion-item>
+</ion-list>
+

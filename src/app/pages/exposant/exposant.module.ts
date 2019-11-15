@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ExposantPage } from './exposant.page';
+import { ListeLivreComponentModule } from '../../components/liste-livre/liste-livre.module'
+
 
 const routes: Routes = [
   {
@@ -19,8 +21,17 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ListeLivreComponentModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ExposantPage]
+  declarations: 
+  [
+    ExposantPage
+  ],
+  entryComponents: [
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]  
 })
 export class ExposantPageModule {}

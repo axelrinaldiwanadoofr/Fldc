@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
 import { Marqueur } from '../../components/plan/plan.component' ;
+import { ListeLivreComponent } from '../../components/liste-livre/liste-livre.component' ;
 
 @Component({
   selector: 'app-exposant',
@@ -13,14 +14,16 @@ import { Marqueur } from '../../components/plan/plan.component' ;
 
 export class ExposantPage implements OnInit 
 {
-	public id: number ;
-	public libelle: string ;
-	public image: string ;
-	public description: string ;
+	private id: number ;
+	private libelle: string ;
+	private image: string ;
+	private description: string ;
 
-	public stands: Array<{id: number, hall: string}> ;
-	public intervenants: Array<{nom: string, prenom: string, jour: string}> ;
-	public rdvs: Array<any> ;
+	private stands: Array<{id: number, hall: string}> ;
+	private intervenants: Array<{nom: string, prenom: string, jour: string}> ;
+  private rdvs: Array<any> ;
+  
+  @ViewChild( ListeLivreComponent, {static: true} ) private listeLivre: ListeLivreComponent ;
 
   constructor(private route:ActivatedRoute,  
     private router: Router,   
@@ -71,6 +74,8 @@ export class ExposantPage implements OnInit
         sqlCommand += "ORDER BY rdv_18.jour DESC, rdv_18.heure ASC"
 
         this.sqlPrd.select(sqlCommand, [this.id], this.rdvs);
+
+        this.listeLivre.onUpdateListe( this.id ) ;
       }) ;
     }
   }
@@ -83,7 +88,7 @@ export class ExposantPage implements OnInit
     let marqueurs = [] ;
 
 		this.stands.forEach((es) => {
-			marqueurs.push( new Marqueur( es.numStand, this.libelle )) ;
+			marqueurs.push( new Marqueur( es.id, this.libelle )) ;
     });
     
     let navigationExtras: NavigationExtras = {
@@ -101,7 +106,7 @@ export class ExposantPage implements OnInit
 	{
 		this.stands.forEach((s) =>
 		{
-			this.favorisPrd.ajoute( s.numStand, this.id, null, "Exposant: " + this.libelle + " stand n° " + s.numStand ) ;      
+			this.favorisPrd.ajoute( s.id, this.id, null, "Exposant: " + this.libelle + " stand n° " + s.numStand ) ;      
 		});
 
 		/**

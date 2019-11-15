@@ -17,8 +17,7 @@ export class ExposantsPage implements OnInit
 
   constructor(
     private router: Router,
-    private sqlPrd: RemoteSqlProvider,
-    private nav: Location ) 
+    private sqlPrd: RemoteSqlProvider )
   {
     this.recherche = new RechercheExposantCriteres() ;
     this.exposants = [] ;
@@ -122,11 +121,6 @@ export class ExposantsPage implements OnInit
   onPlan()
   {
     //this.navCtrl.push( PlansPage, {marqueurs: this.marqueurs} )
-  }
-
-  onGoBack()
-  {
-    this.nav.back() ;
   }
 }
 
