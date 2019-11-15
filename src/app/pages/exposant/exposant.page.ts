@@ -18,7 +18,7 @@ export class ExposantPage implements OnInit
 	public image: string ;
 	public description: string ;
 
-	public stands: Array<{numStand: number, numHall: number}> ;
+	public stands: Array<{id: number, hall: string}> ;
 	public intervenants: Array<{nom: string, prenom: string, jour: string}> ;
 	public rdvs: Array<any> ;
 
@@ -58,13 +58,7 @@ export class ExposantPage implements OnInit
         sqlCommand += "JOIN exposant_18 ON etresur_18.idExposant = exposant_18.id "
         sqlCommand += "WHERE exposant_18.id = " + id
 
-        this.sqlPrd.select(sqlCommand, []).then((data)=>
-        {
-          data.rows.forEach( (s)=>
-          {
-            this.stands.push( {numStand: s.idStand, numHall: s.hall.substr(0,1)} ) ;
-          })
-        }) ;
+        this.sqlPrd.select(sqlCommand, [], this.stands ) ;
 
         // Liste des RDV
         sqlCommand = "SELECT DISTINCT  exposant_18.nom as nomExposant, rdv_18.id, rdv_18.idExposant, stand_18.id as idStand, rdv_18.duree, rdv_18.jour, rdv_18.heure, rdv_18.nom, rdv_18.nbMaxPlace, rdv_18.description, trancheage_18.libelle as age, typerdv_18.nom as typeRdv "

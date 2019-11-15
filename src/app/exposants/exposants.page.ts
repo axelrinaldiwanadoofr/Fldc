@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 import { Marqueur } from '../components/plan/plan.component' ;
-import { Location } from '@angular/common' ;
 
 @Component({
   selector: 'app-exposants',
@@ -33,11 +32,6 @@ export class ExposantsPage implements OnInit
     let sql = "select id, libelle from theme_18 order by libelle";
     this.sqlPrd.select( sql, null, this.themes );
 
-  }
-
-  presentationpage()
-  {
-    this.router.navigate(['/tab3']);
   }
 
   onRecherche()

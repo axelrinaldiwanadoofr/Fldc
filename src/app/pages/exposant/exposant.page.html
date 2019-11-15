@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/exposants"></ion-back-button>
     </ion-buttons>    
-    <ion-title>Exposant n° {{id}} {{libelle}}</ion-title>
+    <ion-title>{{libelle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,11 +16,11 @@
     <ion-item-divider [hidden]="!stands.length">Liste des stands</ion-item-divider>
     <ion-item *ngFor="let s of stands" class="finListe">
       <ion-label>
-          <p>Stand n° {{s.numStand}} hall n° {{s.numHall}}</p>
+          <p>Stand n° {{s.id}} {{s.hall}}</p>
       </ion-label>
     </ion-item>     
-    <br>
-                        
+  </ion-list>
+  <ion-list>                      
     <ion-item-divider [hidden]="!rdvs.length">Liste des rendez vous</ion-item-divider>
     <ion-item *ngFor="let r of rdvs">
       <ion-label class="ion-text-wrap" routerLink="/rdv/{{r.id}}">
@@ -38,6 +38,7 @@
         </ion-label>      
         <ion-icon name="star" class="star" (click)="onFavorisRdv(r)"></ion-icon>
     </ion-item> 
+    
     <ion-button color="primary" expand="full" shape="round" [hidden]="!stands.length" (click)="onPlan()">Afficher sur le plan</ion-button>    
     <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
   </ion-list>
