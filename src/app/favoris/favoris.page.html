@@ -11,7 +11,7 @@
     <ion-list no-border>
         <ion-item ion-item *ngFor="let f of favoris">
           <ion-label (click)="onFavorisClick( f )">
-            <ion-text>
+            <ion-text class="ion-text-wrap">
                 {{f.libelle}}
             </ion-text>
           </ion-label>

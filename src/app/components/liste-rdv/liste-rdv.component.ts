@@ -20,12 +20,12 @@ export class ListeRdvComponent implements OnInit
 
   @Input( 'jour') private jour: string ;
   @Input( 'apresHeure') private heure: string ;
-  @Input( 'typeRdvId') private typeRdvId: number ;
-  @Input( 'themeId') private themeId: number ;
-  @Input( 'trancheAgeId') private trancheAgeId: number ;
+  @Input( 'typeRdvId') private typeRdvId: string ;
+  @Input( 'themeId') private themeId: string ;
+  @Input( 'trancheAgeId') private trancheAgeId: string ;
 
   constructor(
-    private route: Router,
+    private router: Router,
     private sqlPrd: RemoteSqlProvider,
     private toastCtrl: ToastController,
     private favorisPrd: FavorisProvider)
@@ -33,20 +33,27 @@ export class ListeRdvComponent implements OnInit
     this.rdvs = [] ;
     this.hideExposant = false ;
     this.exposantId = null ;
+
+    this.jour = "" ;
+    this.heure = "" ;
+    this.typeRdvId = "0" ;
+    this.themeId = "0" ;
+    this.trancheAgeId = "0" ;
   }
 
   ngOnInit() 
   {
-
   }
 
-  onLoadListe( exposantId: number )
+  loadListe( exposantId: number=null )
   {
     if( exposantId )
     {
       this.exposantId = exposantId ;
       this.hideExposant = true ;
     } 
+
+    this.rdvs = [] ;
 
     let sql = "SELECT DISTINCT rdv_18.id, rdv_18.idStand, jour, heure, duree, rdv_18.nom, nbMaxPlace, rdv_18.description as description, trancheage_18.libelle as age, typerdv_18.nom as type, e.nom as nomExposant, idExposant";
     sql +=" FROM trancheage_18";
@@ -57,43 +64,73 @@ export class ListeRdvComponent implements OnInit
     sql +=" LEFT JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
     sql +=" WHERE 1=1" ; 
 
-    if( this.jour )
+    if( this.jour != "" )
     {
-      sql += "jour = '" + this.jour + "'"
+      sql += " AND jour = '" + this.jour + "'"
     }
 
     if( this.exposantId )
     {
-      sql += " AND rdv_18.idExposant = " + this.themeId ; 
+      sql += " AND rdv_18.idExposant = " + this.exposantId ; 
     }
 
-    if( this.themeId )
+    if( this.themeId != "0" )
     {
       sql += " AND theme_18.id = " + this.themeId ; 
     }
 
-    if(this.typeRdvId )
+    if(this.typeRdvId != "0" )
     {
       sql += " AND typerdv_18.id = " + this.typeRdvId ;
     }
 
-    if( this.trancheAgeId )
+    if( this.trancheAgeId != "0" )
     {
       sql += " AND trancheage_18.id = " + this.trancheAgeId ;
     }
 
-    if(this.typeRdvId == 11 )
+    if(this.typeRdvId == "11" )
     {
       sql += " AND HOUR(heure) <= HOUR('19:00:00')"; 
     }  
-    else
+    else if( this.heure != "" )
     {
       sql +=" AND HOUR(heure) >= HOUR('" + this.heure + "')";
     }
 
-    sql += " order by jour desc, heure";
+    sql += " order by jour desc, heure"; 
 
     this.sqlPrd.select( sql, [], this.rdvs);
+  }
+
+  onFavorisRdv( r )
+  {
+    let str = "RDV  " + r.nom + " " + r.date ;
+    if( r.duree == "en continu") str += " en continu" ;
+    else str += " à " + r.heure ;
+
+    this.favorisPrd.ajoute( r.idStand, null, r.id, "Rdv: " + r.nom + " " + r.jour + " " + r.heure + " stand n° " + r.idStand ) ;
+
+    let toast = this.toastCtrl.create({
+      message: 'Rdv ajouté aux favoris',
+      duration: 1000 
+    }).then( (td)=>
+    {
+      td.present() ;
+    })
+  }
+
+  onPlanRdv( r )
+  {
+    let marqueurs = [] ;
+    marqueurs.push( new Marqueur( r.idStand, "Rdv: " + r.nom ) ) ;
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        marqueurs: marqueurs 
+      }
+    };
+    this.router.navigate(['plans'], navigationExtras);
   }
 
 }

@@ -23,6 +23,8 @@ export class ExposantsPage implements OnInit
     this.exposants = [] ;
     this.marqueurs = [] ;
     this.themes = [] ;
+
+    this.recherche.themeId = "null" ;
   }
 
   ngOnInit()

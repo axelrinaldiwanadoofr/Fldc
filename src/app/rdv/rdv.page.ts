@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 import { Marqueur } from '../components/plan/plan.component' ;
 import { FavorisProvider } from '../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
+import { ListeRdvComponent } from '../components/liste-rdv/liste-rdv.component' ;
 
 
 @Component({
@@ -28,6 +29,9 @@ export class RdvPage implements OnInit
   public unTypeRDV: number;
 
   public mesRDV: Array<{id:number, idStand:number, nom:string, jour:string, heure:string, duree: string, description: string, age: string, type: string, nomExposant: string}>;
+
+  @ViewChild( ListeRdvComponent, {static: true} ) private listeRdv: ListeRdvComponent ;
+
 
   constructor(
     private router: Router,
@@ -65,50 +69,11 @@ export class RdvPage implements OnInit
     this.sqlPrd.select( sql, null, this.ages ) ;
 
     this.sqlPrd.select( "SELECT * FROM typerdv_18 ORDER BY nom", null, this.typesRDV) ;
-
-    console.log(this.typesRDV);
-
   }
 
-  onSearch() {
-
-    this.mesRDV = [] ;
-
-
-      //
-      // Recherche si l'utilisateur ne saisi ni tranche d'age ni theme
-      //
-      let sql = "SELECT DISTINCT rdv_18.id, rdv_18.idStand, jour, heure, duree, rdv_18.nom, nbMaxPlace, rdv_18.description as description, trancheage_18.libelle as age, typerdv_18.nom as type, e.nom as nomExposant, idExposant";
-      sql +=" FROM trancheage_18";
-      sql +=" LEFT JOIN rdv_18 ON trancheage_18.id = rdv_18.idTrancheAge";
-      sql +=" LEFT JOIN typerdv_18 ON rdv_18.idTypeRDV = typerdv_18.id";
-      sql +=" LEFT JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
-      sql +=" LEFT JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
-      sql +=" LEFT JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
-      sql +=" WHERE jour = '" + this.unJour + "'"; 
-
-      if(this.unTheme != 0){
-        sql += " AND theme_18.id = " + this.unTheme; 
-      }
-
-      if(this.unTypeRDV != 0){
-        sql += " AND typerdv_18.id = " + this.unTypeRDV;
-      }
-
-      if(this.uneTranche != 0){
-        sql += " AND trancheage_18.id = " + this.uneTranche;
-      }
-
-      if(this.unTypeRDV == 11){
-        sql += " AND HOUR(heure) <= HOUR('19:00:00')"; 
-      }  
-      else{
-        sql +=" AND HOUR(heure) >= HOUR('" + this.uneHeure + "')";
-      }
-
-      sql += " order by jour desc, heure";
-
-      this.sqlPrd.select(sql, null, this.mesRDV);
+  onSearch() 
+  {
+    this.listeRdv.loadListe() ;
   }
 
   onPlan()
@@ -143,10 +108,4 @@ export class RdvPage implements OnInit
       td.present() ;
     })
   }
-
-  presentationpage()
-  {
-    this.router.navigate(['/tabs/tab3']);
-  }
-
 }
