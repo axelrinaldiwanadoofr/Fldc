@@ -89,7 +89,7 @@ export class RdvPage implements OnInit
         marqueurs: marqueurs 
       }
     };
-    this.router.navigate(['plans'], navigationExtras);
+    this.router.navigate(['tabs/plans'], navigationExtras);
   }
 
   onFavoris( r )

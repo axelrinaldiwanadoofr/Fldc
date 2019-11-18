@@ -46,7 +46,7 @@ export class FavorisPage implements OnInit
         marqueurs: marqueurs 
       }
     };
-    this.router.navigate(['plans'], navigationExtras);
+    this.router.navigate(['tabs/plans'], navigationExtras);
   }
 
   onFavorisClick( f )
