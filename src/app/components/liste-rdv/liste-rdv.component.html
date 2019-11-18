@@ -1,11 +1,14 @@
 <ion-list>                      
   <ion-item-divider>Liste des rendez vous</ion-item-divider>
   <ion-item *ngFor="let r of rdvs">
-    <ion-label class="ion-text-wrap" routerLink="/rdv/{{r.id}}">
+    <ion-label class="ion-text-wrap" (click)="onRdv(r.id)">
       <ion-text color="primary">
         <h2>{{r.nom}}</h2>
       </ion-text>
-      <p>Type: {{r.type}} Stand n°: {{r.idStand}}</p>
+      <p>
+        <span>Type: {{r.type}} </span>
+        <span [hidden]="hideStand">Stand n°: {{r.idStand}}</span>
+      </p>
       <p [hidden]="hideExposant">
           Exposant: {{r.nomExposant}} 
       </p>

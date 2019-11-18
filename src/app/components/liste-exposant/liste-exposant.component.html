@@ -1,0 +1,17 @@
+<ion-list>
+  <ion-item-divider class="debutListe">Liste des exposants</ion-item-divider>
+  <ion-item *ngFor="let e of exposants" routerLink="/exposant/{{e.id}}">
+    <ion-thumbnail item-start *ngIf="e.image" (click)="onExposant(e.id)">
+        <img src="{{e.image}}">
+    </ion-thumbnail>
+    <ion-label (click)="onExposant(e.id)">
+      <ion-text>
+        <h2>{{e.nom}}</h2>
+        <p [hidden]="hideStand">Stand n° {{e.idStand}}</p>
+      </ion-text>
+    </ion-label>
+    <ion-icon name="star" class="star" (click)="onFavoris(e)"></ion-icon>
+    <ion-icon name="map" (click)="onPlan(e)"></ion-icon>
+  </ion-item>
+</ion-list>
+

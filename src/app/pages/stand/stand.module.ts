@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { StandPage } from './stand.page';
+import { ListeRdvComponentModule } from '../../components/liste-rdv/liste-rdv.module' ;
+import { ListeExposantComponentModule } from '../../components/liste-exposant/liste-exposant.module' ;
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ListeRdvComponentModule,
+    ListeExposantComponentModule,
     RouterModule.forChild(routes)
   ],
   declarations: [StandPage],

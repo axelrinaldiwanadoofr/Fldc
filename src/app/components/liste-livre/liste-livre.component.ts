@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
-import { Marqueur } from '../plan/plan.component' ;
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
 

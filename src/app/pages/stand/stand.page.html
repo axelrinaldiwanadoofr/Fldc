@@ -8,29 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>               
-    <ion-item-divider>Liste des exposant</ion-item-divider>
-    <ion-item *ngFor="let e of exposants" (click)="onExposant(e)">
-      {{e.nom}}
-    </ion-item>
-    <br>   
-    <!--<ion-item-divider [hidden]="!rdvs.length">Liste des rendez vous</ion-item-divider>-->
-    <ion-item *ngFor="let r of rdvs">
-      <ion-label class="ion-text-wrap" routerLink="/rdv/{{r.id}}">
-        <ion-text color="primary">
-          <h2>{{r.nom}}</h2>
-        </ion-text>
-        <p>Type: {{r.typeRdv}} </p>
-        <ion-text color="secondary">
-          <p [hidden]="!r.duree"><b>le {{r.jour}} à {{r.heure}}</b></p>
-          <p [hidden]="!r.description" style="white-space:initial;">{{r.description}}</p>
-        </ion-text>
-        <ion-text color="tertiary">
-          <p>Durée: {{r.duree}} pour {{r.age}}</p>
-        </ion-text>
-      </ion-label>      
-      <ion-icon name="star" class="star" (click)="onFavorisRDV(r)"></ion-icon>
-    </ion-item> 
+    <app-liste-exposant
+      standId={{idStand}}>
+    </app-liste-exposant> 
+    <app-liste-rdv
+      standId={{idStand}}>
+    </app-liste-rdv>
+  <ion-list>
     <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>    
     <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
   </ion-list>

@@ -16,7 +16,9 @@ export class ListeRdvComponent implements OnInit
 {
   private rdvs: Array<any>;
   private hideExposant: boolean ;
+  private hideStand: boolean ;
   private exposantId: number ;
+  private standId: number ;
 
   @Input( 'jour') private jour: string ;
   @Input( 'apresHeure') private heure: string ;
@@ -32,7 +34,9 @@ export class ListeRdvComponent implements OnInit
   {
     this.rdvs = [] ;
     this.hideExposant = false ;
+    this.hideStand = false ;
     this.exposantId = null ;
+    this.standId = null ;
 
     this.jour = "" ;
     this.heure = "" ;
@@ -45,12 +49,18 @@ export class ListeRdvComponent implements OnInit
   {
   }
 
-  loadListe( exposantId: number=null )
+  loadListe( exposantId: number=null, standId: number=null )
   {
     if( exposantId )
     {
       this.exposantId = exposantId ;
       this.hideExposant = true ;
+    } 
+
+    if( standId )
+    {
+      this.standId = standId ;
+      this.hideStand = true ;
     } 
 
     this.rdvs = [] ;
@@ -87,6 +97,11 @@ export class ListeRdvComponent implements OnInit
     if( this.trancheAgeId != "0" )
     {
       sql += " AND trancheage_18.id = " + this.trancheAgeId ;
+    }
+
+    if( this.standId )
+    {
+      sql += " AND rdv_18.idStand = " + this.standId ;
     }
 
     if(this.typeRdvId == "11" )
@@ -133,4 +148,8 @@ export class ListeRdvComponent implements OnInit
     this.router.navigate(['tabs/plans'], navigationExtras);
   }
 
+  onRdv( id )
+  {
+    this.router.navigate( ["/rdv/" + id]) ;
+  }
 }
