@@ -52,11 +52,6 @@ export class AppComponent {
         icon: 'star'
     },
     {
-        title: 'Téléchargement',
-        url: '/telechargement',
-        icon: 'download'
-    },
-    {
         title: 'Lycée',
         url: '/lycee',
         icon: 'school'
