@@ -12,7 +12,7 @@
     <ion-searchbar (ionInput)="onSearchStand($event)" placeholder="N° du Stand"></ion-searchbar>
     <br>
     <ion-item *ngFor="let stand of stands">
-      <ion-button href="/stand/{{stand.id}}" style="text-align:center;font-weight:bold;">
+      <ion-button routerLink="/stand/{{stand.id}}" style="text-align:center;font-weight:bold;">
         <ion-icon class="icon-home" name="home"></ion-icon>
         STAND {{stand.id}}
       </ion-button>
