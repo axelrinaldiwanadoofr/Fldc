@@ -1,4 +1,4 @@
-<ion-segment [(ngModel)]="plan.nom">
+<ion-segment class="essai" [(ngModel)]="plan.nom">
   <ion-segment-button *ngFor="let p of plans" value="{{p.nom}}" [hidden]="!p.afficheTitre">
     {{p.titre}}
   </ion-segment-button>
