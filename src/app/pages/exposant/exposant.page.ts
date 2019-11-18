@@ -106,7 +106,7 @@ export class ExposantPage implements OnInit
 	{
 		this.stands.forEach((s) =>
 		{
-			this.favorisPrd.ajoute( s.id, this.id, null, "Exposant: " + this.libelle + " stand n° " + s.numStand ) ;      
+			this.favorisPrd.ajoute( s.id, this.id, null, "Exposant: " + this.libelle + " stand n° " + s.id ) ;      
 		});
 
 		/**
