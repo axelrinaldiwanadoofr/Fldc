@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
+import { ListeRdvComponentModule } from '../components/liste-rdv/liste-rdv.module' ;
 
 import { RdvPage } from './rdv.page';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ListeRdvComponentModule,
     RouterModule.forChild(routes)
   ],
   declarations: [RdvPage]
