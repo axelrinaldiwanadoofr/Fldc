@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'rdv/:id', loadChildren: './pages/rdv/rdv.module#RdvPageModule' },
   { path: 'theme2019', loadChildren: './theme2019/theme2019.module#Theme2019PageModule' },
   { path: 'dateimportante', loadChildren: './dateimportante/dateimportante.module#DateimportantePageModule' },
+  { path: 'auteur/:id', loadChildren: './pages/auteur/auteur.module#AuteurPageModule' },
 
 ];
 @NgModule({

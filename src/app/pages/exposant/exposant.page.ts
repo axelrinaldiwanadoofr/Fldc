@@ -62,7 +62,7 @@ export class ExposantPage implements OnInit
 
         this.sqlPrd.select(sqlCommand, [], this.stands ) ;
 
-        this.listeLivre.onUpdateListe( this.id ) ;
+        this.listeLivre.loadListe( this.id ) ;
         this.listeRdv.loadListe( this.id ) ;
       }) ;
     }

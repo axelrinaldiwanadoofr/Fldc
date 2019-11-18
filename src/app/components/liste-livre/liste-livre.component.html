@@ -4,12 +4,12 @@
       <ion-thumbnail item-start [hidden]="!l.image">
           <img src={{l.image}}> <!-- la couverture -->
       </ion-thumbnail> 
-      <ion-label>
+      <ion-label (click)="onLivre( l.id )">
         <ion-text>
             <h2> {{l.titre}} </h2>
         </ion-text>
         <ion-text  color="primary">
-          <p> 
+          <p [hidden]="hideAuteur"> 
               Auteur: <b>{{l.auteurPrenom}} {{l.auteurNom}}</b>
           </p>
           <p> 
@@ -27,6 +27,7 @@
         </ion-text>
       </ion-label>    
       <ion-icon name="star" class="star" (click)="onFavorisLivre(l)"></ion-icon>       
+      <ion-icon name="map" (click)="onPlanLivre(l)"></ion-icon>
   </ion-item>
 </ion-list>
 

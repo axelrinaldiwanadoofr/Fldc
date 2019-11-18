@@ -26,11 +26,6 @@ export class StandsPage implements OnInit
     this.numMax = 9999 ;
   }
 
-  presentationpage()
-  {
-    this.route.navigate(['/tabs/tab3']);
-  }
-
   ngOnInit() 
   {
     this.stands=[];

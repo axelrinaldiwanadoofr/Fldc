@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/auteurs"></ion-back-button>
+    </ion-buttons>        
+    <ion-title>{{nom}} {{prenom}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-liste-livre auteurId={{id}}></app-liste-livre>
+  <app-liste-rdv personneId={{id}}></app-liste-rdv>
+
+</ion-content>

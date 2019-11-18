@@ -63,7 +63,7 @@ export class LivresPage implements OnInit
   // Au clic, affiche la liste en fonction des informations renseignées par l'utilisateur en
   onRechercheClick() 
   {
-    this.listeLivre.onUpdateListe() ;
+    this.listeLivre.loadListe() ;
   }
 }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
-import { Marqueur } from '../components/plan/plan.component' ;
 import { ListeExposantComponent } from '../components/liste-exposant/liste-exposant.component' ;
 
 @Component({

@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
+import { Marqueur } from '../plan/plan.component' ;
 
 
 @Component({
@@ -14,8 +15,9 @@ export class ListeLivreComponent implements OnInit
 {
   private livres: Array<any>;
   private hideExposant: boolean ;
+  private hideAuteur: boolean ;
 
-  @Input( 'auteurId') private auteurId: string ;
+  @Input( 'auteurId') private auteurId: number ;
   @Input( 'exposantId') private exposantId: number ;
   @Input( 'editeur') private editeur: string ;
   @Input( 'titre') private titre: string ;
@@ -23,12 +25,15 @@ export class ListeLivreComponent implements OnInit
   @Input( 'trancheAgeId') private trancheAgeId: string ;
 
   constructor(
-    private route: Router,
+    private router: Router,
     private sqlPrd: RemoteSqlProvider,
     private toastCtrl: ToastController,
     private favorisPrd: FavorisProvider)
   {
     this.hideExposant = false ;
+    this.hideAuteur = false ;
+    this.exposantId = null ;
+    this.auteurId = null ;
 
     this.livres = []; // Tableau qui contiendra les livres
   }
@@ -36,17 +41,22 @@ export class ListeLivreComponent implements OnInit
 
   ngOnInit() 
   {    
-    //this.onUpdateListe() ;
   }
 
 
   // Au clic, affiche la liste en fonction des informations renseignées par l'utilisateur en
-  onUpdateListe( exposantId: number=null ) 
+  loadListe( exposantId: number=null, auteurId: number=null ) 
   {
     if( exposantId )
     {
       this.exposantId = exposantId ;
       this.hideExposant = true ;
+    } 
+
+    if( auteurId )
+    {
+      this.auteurId = auteurId ;
+      this.hideAuteur = true ;
     } 
 
     this.livres = [];
@@ -115,11 +125,22 @@ export class ListeLivreComponent implements OnInit
     }) ;
 	}
 
-
-  // si clic sur un livre de la liste affichée par la requête, dirige vers LivrePage du livre cliqué
-  onLivreClick(livre) 
+  onPlanLivre( l )
   {
-    //this.navCtrl.push(LivrePage, { idLivre: livre.id });
+    let marqueurs = [] ;
+    marqueurs.push( new Marqueur( l.numStand, "Livre: " + l.titre ) ) ;
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        marqueurs: marqueurs 
+      }
+    };
+    this.router.navigate(['tabs/plans'], navigationExtras);
+  }
+
+  onLivre( id ) 
+  {  
+    this.router.navigate( ["/livre/" + id] ) ;    
   }
 
 }

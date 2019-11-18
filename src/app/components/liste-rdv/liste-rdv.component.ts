@@ -19,6 +19,8 @@ export class ListeRdvComponent implements OnInit
   private hideStand: boolean ;
   private exposantId: number ;
   private standId: number ;
+  private personneId: number ;
+  private hidePersonne ;
 
   @Input( 'jour') private jour: string ;
   @Input( 'apresHeure') private heure: string ;
@@ -37,6 +39,8 @@ export class ListeRdvComponent implements OnInit
     this.hideStand = false ;
     this.exposantId = null ;
     this.standId = null ;
+    this.personneId = null ;
+    this.hidePersonne = false ;
 
     this.jour = "" ;
     this.heure = "" ;
@@ -49,7 +53,7 @@ export class ListeRdvComponent implements OnInit
   {
   }
 
-  loadListe( exposantId: number=null, standId: number=null )
+  loadListe( exposantId: number=null, standId: number=null, personneId: number=null )
   {
     if( exposantId )
     {
@@ -63,6 +67,11 @@ export class ListeRdvComponent implements OnInit
       this.hideStand = true ;
     } 
 
+    if( personneId )
+    {
+      this.personneId = personneId ;
+    }
+
     this.rdvs = [] ;
 
     let sql = "SELECT DISTINCT rdv_18.id, rdv_18.idStand, jour, heure, duree, rdv_18.nom, nbMaxPlace, rdv_18.description as description, trancheage_18.libelle as age, typerdv_18.nom as type, e.nom as nomExposant, idExposant";
@@ -72,6 +81,7 @@ export class ListeRdvComponent implements OnInit
     sql +=" LEFT JOIN parlerde_18 ON rdv_18.id = parlerde_18.idRDV";
     sql +=" LEFT JOIN theme_18 ON parlerde_18.idTheme = theme_18.id";
     sql +=" LEFT JOIN exposant_18 as e ON rdv_18.idExposant = e.id";
+    sql +=" LEFT JOIN participer_18 as p ON rdv_18.id = p.idRDV";
     sql +=" WHERE 1=1" ; 
 
     if( this.jour != "" )
@@ -82,6 +92,11 @@ export class ListeRdvComponent implements OnInit
     if( this.exposantId )
     {
       sql += " AND rdv_18.idExposant = " + this.exposantId ; 
+    }
+
+    if( this.personneId )
+    {
+      sql += " AND p.idPersonne = " + this.personneId ; 
     }
 
     if( this.themeId != "0" )
