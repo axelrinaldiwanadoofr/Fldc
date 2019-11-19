@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular' ;
 import { Marqueur } from '../../components/plan/plan.component' ;
 import { ListeLivreComponent } from '../../components/liste-livre/liste-livre.component' ;
 import { ListeRdvComponent } from '../../components/liste-rdv/liste-rdv.component' ;
+import { ListeExposantComponent } from '../../components/liste-exposant/liste-exposant.component' ;
 
 @Component({
   selector: 'app-theme',
@@ -19,6 +20,7 @@ export class ThemePage implements OnInit
 
   @ViewChild( ListeLivreComponent, {static: true} ) private listeLivre: ListeLivreComponent ;
   @ViewChild( ListeRdvComponent, {static: true} ) private listeRdv: ListeRdvComponent ;
+  @ViewChild( ListeExposantComponent, {static: true} ) private listeExposant: ListeExposantComponent ;
 
   constructor(private route:ActivatedRoute,  
     private router: Router,   
@@ -46,6 +48,7 @@ export class ThemePage implements OnInit
         
         this.listeLivre.loadListeByTheme( this.id ) ;
         this.listeRdv.loadListeByTheme( this.id ) ;
+        this.listeExposant.loadListeByTheme( this.id ) ;
       }) ;
     }
   }

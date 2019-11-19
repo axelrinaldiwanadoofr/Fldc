@@ -15,11 +15,14 @@ export class ListeExposantComponent implements OnInit
 {
   @Input( 'libelle') private libelle: string ;
   @Input( 'themeId') private themeId: string ;
+  @Input( 'maxNbLigne') private maxNbLigne: string ;
 
   private exposants: Array<any> ;
 
   private standId: number ;
   private hideStand: boolean ;
+  private hideTheme: boolean ;
+  private hideListe: boolean ;
 
   constructor(
     private router: Router,
@@ -31,12 +34,27 @@ export class ListeExposantComponent implements OnInit
     this.themeId = "0" ;
     this.standId = null ;
     this.hideStand = false ;
+    this.hideTheme = false ;
+    this.hideListe = false ;
     this.exposants = [] ;
+    this.maxNbLigne = "4" ;
   }
 
   ngOnInit() 
   {
 
+  }
+
+  showOrHideListe()
+  {
+    this.hideListe = !this.hideListe ;
+  }
+
+  loadListeByTheme( themeId: string )
+  {
+    this.themeId = themeId ;
+    this.hideTheme = true ;
+    this.loadListe() ;
   }
 
   loadListe( standId: number=null )
@@ -67,14 +85,17 @@ export class ListeExposantComponent implements OnInit
       sql += " AND idStand = " + this.standId ;
     }
 
-    if( this.themeId != "0" )
+    if( this.themeId && this.themeId != "0" )
     {
       sql += " AND theme_18.id = " + this.themeId ;
     }
 
     sql += " ORDER BY exposant_18.nom" ;
 
-    this.sqlPrd.select(sql, null, this.exposants) ;
+    this.sqlPrd.select(sql, null, this.exposants).then( (data)=>
+    {
+      if( this.exposants.length > parseInt(this.maxNbLigne) ) this.hideListe = true ;
+    });
   }
 
   onExposant( id )
