@@ -20,13 +20,16 @@ export class ListeRdvComponent implements OnInit
   private exposantId: number ;
   private standId: number ;
   private personneId: number ;
-  private hidePersonne ;
+  private hidePersonne: boolean ;
+  private hideTheme: boolean ;
+  private hideListe: boolean ;
 
   @Input( 'jour') private jour: string ;
   @Input( 'apresHeure') private heure: string ;
   @Input( 'typeRdvId') private typeRdvId: string ;
   @Input( 'themeId') private themeId: string ;
   @Input( 'trancheAgeId') private trancheAgeId: string ;
+  @Input( 'maxNbLigne') private maxNbLigne: string ;
 
   constructor(
     private router: Router,
@@ -34,6 +37,8 @@ export class ListeRdvComponent implements OnInit
     private toastCtrl: ToastController,
     private favorisPrd: FavorisProvider)
   {
+    this.maxNbLigne = "10" ;
+    this.hideListe = false ;
     this.rdvs = [] ;
     this.hideExposant = false ;
     this.hideStand = false ;
@@ -45,12 +50,24 @@ export class ListeRdvComponent implements OnInit
     this.jour = "" ;
     this.heure = "" ;
     this.typeRdvId = "0" ;
-    this.themeId = "0" ;
+    this.themeId = null ;
     this.trancheAgeId = "0" ;
   }
 
   ngOnInit() 
   {
+  }
+
+  showOrHideListe()
+  {
+    this.hideListe = !this.hideListe ;
+  }
+
+  loadListeByTheme( themeId: string )
+  {
+    this.themeId = themeId ;
+    this.hideTheme = true ;
+    this.loadListe() ;
   }
 
   loadListe( exposantId: number=null, standId: number=null, personneId: number=null )
@@ -99,7 +116,7 @@ export class ListeRdvComponent implements OnInit
       sql += " AND p.idPersonne = " + this.personneId ; 
     }
 
-    if( this.themeId != "0" )
+    if( this.themeId && this.themeId != "0" )
     {
       sql += " AND theme_18.id = " + this.themeId ; 
     }
@@ -130,7 +147,10 @@ export class ListeRdvComponent implements OnInit
 
     sql += " order by jour desc, heure"; 
 
-    this.sqlPrd.select( sql, [], this.rdvs);
+    this.sqlPrd.select( sql, [], this.rdvs).then( (data)=>
+    {
+      if( this.rdvs.length > parseInt(this.maxNbLigne) ) this.hideListe = true ;
+    });
   }
 
   onFavorisRdv( r )

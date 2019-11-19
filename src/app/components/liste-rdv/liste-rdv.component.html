@@ -1,6 +1,16 @@
 <ion-list>                      
-  <ion-item-divider>Liste des rendez vous</ion-item-divider>
-  <ion-item *ngFor="let r of rdvs">
+  <ion-item (click)="showOrHideListe()">
+    <ion-label>
+      <ion-text>
+          <span [hidden]="hideListe">- </span>
+          <span [hidden]="!hideListe">+ </span>
+          <b>{{rdvs.length}} rendez vous</b>      
+      </ion-text>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list *ngIf="!hideListe">
+  <ion-item *ngFor="let r of rdvs" >
     <ion-label class="ion-text-wrap" (click)="onRdv(r.id)">
       <ion-text color="primary">
         <h2>{{r.nom}}</h2>
