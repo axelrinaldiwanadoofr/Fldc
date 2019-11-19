@@ -22,4 +22,8 @@
   </ion-list>
   <app-liste-livre exposantId={{id}}></app-liste-livre>
   <app-liste-rdv exposantId={{id}}></app-liste-rdv>
+  <ion-list>
+    <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>    
+    <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
+  </ion-list>  
 </ion-content>

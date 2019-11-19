@@ -10,7 +10,7 @@
     </ion-item>
 </ion-list>
 <ion-list *ngIf="!hideListe">      
-  <ion-item *ngFor="let l of livres" (click)="onLivreClick(l)"> <!-- pour chaque ligne de livre affichée il y a: -->
+  <ion-item *ngFor="let l of livres"> <!-- pour chaque ligne de livre affichée il y a: -->
       <ion-thumbnail item-start [hidden]="!l.image">
           <img src={{l.image}}> <!-- la couverture -->
       </ion-thumbnail> 

@@ -83,18 +83,29 @@ export class PlanComponent implements OnInit
           new RectCoord( parseFloat(z.x1), parseFloat(z.y1), parseFloat(z.x2), parseFloat(z.y2) ) ) ) ;
       }
 
-      // Affiche les marqueurs
-      if( this.marqueurs.length )
-      {
-        //this.cacheTousLesTitresDePlan() ;
-
-        this.marqueurs.forEach( (m)=>
-        {
-          this.marqueZone( m.idZone, m.titre ) ;
-        })
-      }
+      this.marqueZones() ;
     }) ;    
   }
+
+  /**
+  * @ngdoc method
+  * @name loadZones
+  * @description
+  * Charge toutes les zones du plan
+  */
+ marqueZones()
+ {
+    // Affiche les marqueurs
+    if( this.marqueurs.length )
+    {
+      //this.cacheTousLesTitresDePlan() ;
+
+      this.marqueurs.forEach( (m)=>
+      {
+        this.marqueZone( m.idZone, m.titre ) ;
+      })
+    }
+ }
 
   addPlan( plan )
   {

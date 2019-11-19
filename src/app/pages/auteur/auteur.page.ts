@@ -3,7 +3,6 @@ import { ActivatedRoute, Router, NavigationExtras } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { FavorisProvider } from '../../../providers/favoris/favoris';
 import { ToastController } from '@ionic/angular' ;
-import { Marqueur } from '../../components/plan/plan.component' ;
 import { ListeLivreComponent } from '../../components/liste-livre/liste-livre.component' ;
 import { ListeRdvComponent } from '../../components/liste-rdv/liste-rdv.component' ;
 

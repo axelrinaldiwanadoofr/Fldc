@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
     </ion-buttons>     
     <ion-title  class="ion-text-center" color="danger">
       <h1>Plans</h1>
@@ -10,5 +10,5 @@
 </ion-header>
 
 <ion-content>
-    <app-plan newzone='true' idplaceholder="N stand" (matchZone)="onSelectStand( $event );" ></app-plan>   
+    <app-plan newzone='false' idplaceholder="N stand" (matchZone)="onSelectStand( $event );" ></app-plan>   
 </ion-content>
