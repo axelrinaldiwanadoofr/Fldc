@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router' ;
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router' ;
 import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 
 @Component({
