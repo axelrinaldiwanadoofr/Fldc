@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChildren } from '@a
 import { RemoteSqlProvider } from '../../../providers/remotesql/remotesql';
 import { ToastController } from '@ionic/angular' ;
 
-
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',
