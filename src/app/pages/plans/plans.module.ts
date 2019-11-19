@@ -8,7 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { PlansPage } from './plans.page';
 import { PlanComponentModule } from '../../components/plan/plan.module' ;
 
-
 const routes: Routes = [
   {
     path: '',

@@ -14,8 +14,6 @@ import { WebSqlProvider } from '../providers/websql/websql';
 import { FavorisProvider } from '../providers/favoris/favoris';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent

@@ -1,9 +1,14 @@
 .sc-ion-card-md-s img {
- display: flex;
+    display: flex;
   justify-content: center;
 }
 
-ion-segment-button button {
-	margin: -15px;
-	padding: -15px;
+ion-segment {
+    max-width: 100%;
+    overflow: auto;
+    justify-content: left;
+}
+
+ion-segment-button {
+    min-width: 0;
 }
