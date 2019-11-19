@@ -16,6 +16,8 @@ export class ListeLivreComponent implements OnInit
   private livres: Array<any>;
   private hideExposant: boolean ;
   private hideAuteur: boolean ;
+  private hideTheme: boolean ;
+  private hideListe: boolean ;
 
   @Input( 'auteurId') private auteurId: number ;
   @Input( 'exposantId') private exposantId: number ;
@@ -23,6 +25,7 @@ export class ListeLivreComponent implements OnInit
   @Input( 'titre') private titre: string ;
   @Input( 'themeId') private themeId: string ;
   @Input( 'trancheAgeId') private trancheAgeId: string ;
+  @Input( 'maxNbLigne') private maxNbLigne: string ;
 
   constructor(
     private router: Router,
@@ -32,8 +35,11 @@ export class ListeLivreComponent implements OnInit
   {
     this.hideExposant = false ;
     this.hideAuteur = false ;
+    this.hideTheme = false ;
     this.exposantId = null ;
     this.auteurId = null ;
+    this.maxNbLigne = "10" ;
+    this.hideListe = false ;
 
     this.livres = []; // Tableau qui contiendra les livres
   }
@@ -43,6 +49,17 @@ export class ListeLivreComponent implements OnInit
   {    
   }
 
+  showOrHideListe()
+  {
+    this.hideListe = !this.hideListe ;
+  }
+
+  loadListeByTheme( themeId: string )
+  {
+    this.themeId = themeId ;
+    this.hideTheme = true ;
+    this.loadListe() ;
+  }
 
   // Au clic, affiche la liste en fonction des informations renseignées par l'utilisateur en
   loadListe( exposantId: number=null, auteurId: number=null ) 
@@ -106,7 +123,10 @@ export class ListeLivreComponent implements OnInit
 
     // classer par titre
     sql += " ORDER BY titre" ;
-    this.sqlPrd.select(sql, null, this.livres);
+    this.sqlPrd.select(sql, null, this.livres).then( (data)=>
+    {
+      if( this.livres.length > parseInt(this.maxNbLigne) ) this.hideListe = true ;
+    });;
   }
 
 	onFavorisLivre(l)
