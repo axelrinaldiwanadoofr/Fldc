@@ -155,7 +155,7 @@ export class ListeLivreComponent implements OnInit
         marqueurs: marqueurs 
       }
     };
-    this.router.navigate(['tabs/plans'], navigationExtras);
+    this.router.navigate(['/plans'], navigationExtras);
   }
 
   onLivre( id ) 

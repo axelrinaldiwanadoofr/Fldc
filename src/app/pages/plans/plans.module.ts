@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PlansPage } from './plans.page';
-import { PlanComponent } from '../../components/plan/plan.component' ;
+import { PlanComponentModule } from '../../components/plan/plan.module' ;
 
 const routes: Routes = [
   {
@@ -20,14 +20,13 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    PlanComponentModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
-    PlansPage,
-    PlanComponent
+    PlansPage
   ],
   entryComponents: [
-    PlanComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

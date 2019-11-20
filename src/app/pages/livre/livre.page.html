@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/livres"></ion-back-button>
+    </ion-buttons>        
+    <ion-title>{{titre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-img [hidden]="!image" src={{image}}></ion-img>
+  <ion-card>
+    <ion-text  color="primary">
+      <p> 
+          Auteur: <b>{{auteurPrenom}} {{auteurNom}}</b>
+      </p>
+      <p> 
+          Editeur: {{editeur}} <!-- le nom de l'auteur et chez quel éditeur il a été publié-->
+      </p>
+      <p>
+          Thème: {{libelle}} <!-- le nom du thème -->
+      </p>
+      <p>
+          Exposant: {{nomExposant}} <!-- le nom de l'exposant chez qui on peut le trouver -->
+      </p>
+      <p>
+          Stand n° {{standId}} <!-- le num du stand où on peut le trouver -->
+      </p>
+    </ion-text>
+    <br>
+    <ion-text color="primary" [hidden]="enResume==''">
+      <h3>Résumé</h3>
+    </ion-text>
+    <ion-text color="secondary" [hidden]="enResume==''">
+      <p>
+        {{enResume}}
+      </p>
+      </ion-text>
+      <br>
+      <ion-text color="primary" [hidden]="commentaire==''">
+        <h3>Commentaire</h3>
+      </ion-text>
+      <ion-text color="secondary" [hidden]="commentaire==''">
+        <p>
+          {{commentaire}}
+        </p>
+      </ion-text>
+    </ion-card>    
+    <ion-list>
+      <ion-button color="primary" expand="full" shape="round" (click)="onPlan()">Afficher sur le plan</ion-button>    
+      <ion-button color="primary" expand="full" shape="round" (click)="onFavoris()">Ajouter aux favoris</ion-button>
+    </ion-list>  
+</ion-content>

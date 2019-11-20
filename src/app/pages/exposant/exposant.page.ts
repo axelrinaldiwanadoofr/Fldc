@@ -55,12 +55,15 @@ export class ExposantPage implements OnInit
         }
         
         // Liste des stands
-        let sqlCommand = "SELECT * FROM stand_18 "
+        let sqlCommand = "SELECT stand_18.id, stand_18.hall FROM stand_18 "
         sqlCommand += "JOIN etresur_18 ON stand_18.id = etresur_18.idStand "
         sqlCommand += "JOIN exposant_18 ON etresur_18.idExposant = exposant_18.id "
         sqlCommand += "WHERE exposant_18.id = " + id
 
-        this.sqlPrd.select(sqlCommand, [], this.stands ) ;
+        this.sqlPrd.select(sqlCommand, [], this.stands ).then( (data)=>
+        {
+          console.log( "toto") ;
+        }) ;
 
         this.listeLivre.loadListe( this.id ) ;
         this.listeRdv.loadListe( this.id ) ;
@@ -84,7 +87,7 @@ export class ExposantPage implements OnInit
         marqueurs: marqueurs 
       }
     };
-    this.router.navigate(['/tabs/plans'], navigationExtras);
+    this.router.navigate(['/plans'], navigationExtras);
 	}
 
 	/**
@@ -108,21 +111,4 @@ export class ExposantPage implements OnInit
       toastData.present();
     }) ;
 	}
-
-	onFavorisRdv(r)
-	{
-		this.favorisPrd.ajoute( r.idStand, null, r.id, "Rdv: " + r.nom + " " + r.jour + " " + r.heure + " stand n° " + r.idStand ) ;      
-
-		/**
-		 * Permet de créer un message (toast).
-		 */
-		let toast = this.toastCtrl.create({
-			message: 'Rendez vous ' + r.nom + ' ajouté aux favoris',
-			duration: 1000 
-    }).then( (toastData)=>
-    {
-      toastData.present();
-    }) ;
-	}
-
 }

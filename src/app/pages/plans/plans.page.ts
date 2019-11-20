@@ -43,6 +43,8 @@ export class PlansPage implements OnInit
           {
             this.plan.ajouteMarqueur( m.idZone, m.idZone + ": " + m.titre ) ;
           }) ;
+
+          this.plan.marqueZones() ;
         }
       }
     });    

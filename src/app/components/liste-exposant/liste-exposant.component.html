@@ -1,5 +1,15 @@
-<ion-list>
-  <ion-item-divider class="debutListe">Liste des exposants</ion-item-divider>
+<ion-list>                      
+    <ion-item (click)="showOrHideListe()">
+        <ion-label>
+            <ion-text>
+                <span [hidden]="hideListe">- </span>
+                <span [hidden]="!hideListe">+ </span>
+                <b>{{exposants.length}} exposants</b>      
+            </ion-text>
+        </ion-label>
+    </ion-item>
+</ion-list>
+<ion-list *ngIf="!hideListe">      
   <ion-item *ngFor="let e of exposants" routerLink="/exposant/{{e.id}}">
     <ion-thumbnail item-start *ngIf="e.image" (click)="onExposant(e.id)">
         <img src="{{e.image}}">

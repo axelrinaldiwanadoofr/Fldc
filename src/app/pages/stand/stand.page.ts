@@ -45,7 +45,7 @@ export class StandPage implements OnInit
         marqueurs: [new Marqueur( parseInt(this.idStand), "" )] 
       }
     };
-    this.router.navigate(['/tabs/plans'], navigationExtras);
+    this.router.navigate(['/plans'], navigationExtras);
   }
 
   onFavoris()

@@ -1,14 +1,15 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/themes"></ion-back-button>
-      </ion-buttons>        
-      <ion-title>{{libelle}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/themes"></ion-back-button>
+    </ion-buttons>        
+    <ion-title>{{libelle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
   
-  <ion-content>
-    <app-liste-livre themeId={{id}}></app-liste-livre>
-    <app-liste-rdv themeId={{id}} maxNbLigne=5></app-liste-rdv>
-  </ion-content>
+<ion-content>
+  <app-liste-livre themeId={{id}}></app-liste-livre>
+  <app-liste-rdv themeId={{id}} maxNbLigne=5></app-liste-rdv>
+  <app-liste-exposant themeId={{id}} maxNbLigne=5></app-liste-exposant>
+</ion-content>
   

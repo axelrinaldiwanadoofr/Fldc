@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'auteur/:id', loadChildren: './pages/auteur/auteur.module#AuteurPageModule' },
   { path: 'theme/:id', loadChildren: './pages/theme/theme.module#ThemePageModule' },
   { path: 'jeupirate', loadChildren: './jeupirate/jeupirate.module#JeupiratePageModule' },
-
+  { path: 'livre/:id', loadChildren: './pages/livre/livre.module#LivrePageModule' }
 ];
 @NgModule({
   imports: [
