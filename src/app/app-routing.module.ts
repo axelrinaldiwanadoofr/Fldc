@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'dateimportante', loadChildren: './dateimportante/dateimportante.module#DateimportantePageModule' },
   { path: 'auteur/:id', loadChildren: './pages/auteur/auteur.module#AuteurPageModule' },
   { path: 'theme/:id', loadChildren: './pages/theme/theme.module#ThemePageModule' },
+  { path: 'jeupirate', loadChildren: './jeupirate/jeupirate.module#JeupiratePageModule' },
 
 ];
 @NgModule({

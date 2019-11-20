@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>jeupirate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" padding>
+  <!--Message de bienvenue-->
+  <h3>
+    <p>
+      Bienvenue dans le jeu de piste
+    </p>
+  </h3>
+
+  <!--Présentation du jeu de piste-->
+  <h5>
+    <p>Ce jeu est composé de 8 énigmes.</p>
+    <p> Résolvez les pour gagner 1 lot. 15 lots sont disponibles chaque jour !</p>
+    <p> Ce jeu est abordable à partir de 15 ans (difficile en dessous).</p>
+    <br/>
+  </h5>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <!--Boutton de début de jeu qui mène à la pages des énigmes-->
+  <!--grâce à la fonction onClickDebutJeu() du jeuPiste.ts-->
+  <button ion-button  color="rouge" class="debutJeu" (click)="onClickDebutJeu()" round large>Débuter le jeu</button>
+</ion-content>
