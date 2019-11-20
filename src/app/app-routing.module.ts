@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -31,7 +32,12 @@ const routes: Routes = [
   { path: 'auteur/:id', loadChildren: './pages/auteur/auteur.module#AuteurPageModule' },
   { path: 'theme/:id', loadChildren: './pages/theme/theme.module#ThemePageModule' },
   { path: 'jeupirate', loadChildren: './jeupirate/jeupirate.module#JeupiratePageModule' },
-  { path: 'livre/:id', loadChildren: './pages/livre/livre.module#LivrePageModule' }
+  { path: 'livre/:id', loadChildren: './pages/livre/livre.module#LivrePageModule' },  { path: 'enigmeun', loadChildren: './enigmeun/enigmeun.module#EnigmeunPageModule' },
+  { path: 'enigmedeux', loadChildren: './enigmedeux/enigmedeux.module#EnigmedeuxPageModule' },
+  { path: 'enigmetrois', loadChildren: './enigmetrois/enigmetrois.module#EnigmetroisPageModule' },
+  { path: 'enigmequatre', loadChildren: './enigmequatre/enigmequatre.module#EnigmequatrePageModule' },
+  { path: 'enigmecinq', loadChildren: './enigmecinq/enigmecinq.module#EnigmecinqPageModule' }
+
 ];
 @NgModule({
   imports: [

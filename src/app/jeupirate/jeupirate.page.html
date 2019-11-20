@@ -1,30 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>jeupirate</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="accueilpage()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title><h1>Jeu du Pirate</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background" padding>
-  <!--Message de bienvenue-->
-  <h3>
-    <p>
-      Bienvenue dans le jeu de piste
-    </p>
-  </h3>
+<ion-content>
+<ion-card>
+  <ion-item>
+    <ion-icon name="compass" slot="start"></ion-icon>
+    <h2>Bienvenue aux énigmes de Barbencrème !</h2>
+  </ion-item>
 
-  <!--Présentation du jeu de piste-->
-  <h5>
-    <p>Ce jeu est composé de 8 énigmes.</p>
-    <p> Résolvez les pour gagner 1 lot. 15 lots sont disponibles chaque jour !</p>
-    <p> Ce jeu est abordable à partir de 15 ans (difficile en dessous).</p>
-    <br/>
-  </h5>
+  <ion-card-content>
+        <img src="assets/img/pirate.png"/>
+  </ion-card-content>
+</ion-card>
+  <ion-button (click)="pagesuivante()" expand="full" color="primary" size="large">Jouer</ion-button>
+<ion-card>
+  <ion-item>
+    <h2>Pour commencer le jeu cliquer au dessus !</h2>
+  </ion-item>
 
-  <br/>
-  <br/>
-  <br/>
-
-  <!--Boutton de début de jeu qui mène à la pages des énigmes-->
-  <!--grâce à la fonction onClickDebutJeu() du jeuPiste.ts-->
-  <button ion-button  color="rouge" class="debutJeu" (click)="onClickDebutJeu()" round large>Débuter le jeu</button>
+  <ion-card-content>
+<p>Les énigmes de barbencrème sont un petit jeu de piste pour les 5-10 ans.
+Le but est simple : des cartes du hall avec des croix sont affichées, puis une fois là-bas, des énigmes apparaissent, où leurs réponses correspondent aux feuilles plastifiées contenant un mot de passe qu’il faut entrer sur l’application pour déverrouiller la suite. Une petite récompense est donnée à chacun à la fin, donc inutile de se presser.</p>
+</ion-card-content>
+</ion-card>
 </ion-content>

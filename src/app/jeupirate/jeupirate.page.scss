@@ -1,11 +1,19 @@
-.debutJeu {
+ion-title{
+	color: #000080;
+    padding-right: 50px;
     text-align: center;
-    width: 100%;
-    font-weight: bold;
-    height: 50px;
-    margin-bottom: 40px;
-    color:white;
-    background: #C51B5E;
-    border-radius: 10% / 55%;
-     
+}
+h2 {
+	text-align: center;
+}
+img {
+  height: 35%;
+  width: 35%;
+  margin: auto;
+  display: block;
+  padding-top : 10px;
+  border-radius: 10px;
+}
+p{
+	text-align: center;
 }
