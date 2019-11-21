@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>enigmecinq</ion-title>
+       <ion-buttons slot="end">
+           <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
+       </ion-buttons>
+    <ion-title>Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="form-content">
+      <ion-label position="floating" color="primary">Calcul : 
+2 pirates et leur capitaine trouvent un trésor et décident de le départager, mais étant avides, chacun souhaite la plus grande part. Apres avoir bien regardé, le trésor contient 800 pieces.
 
+</ion-label>
+<p position="floating" color="warning">Le capitaine décide de prendre la moitié du trésor, puisqu’il est le capitaine
+Les 2 pirates restants décident de laisser 198 pieces dans le coffre qu’ils donneront aux chasseurs de trésor. Pour le reste, ils se le partagent de façon équitable (autant pour l’un que pour l’autre).
+Combien de pieces chacun des pirates a il gardé ?
+</p>
+  <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Ecrire la réponse qui convient :</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.username">
+        <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+        <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.terms">
+        <div class="error-message" *ngIf="validations_form.get('terms').hasError(validation.type) && (validations_form.get('terms').dirty || validations_form.get('terms').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+        <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
+  </form>
 </ion-content>

@@ -36,7 +36,8 @@ const routes: Routes = [
   { path: 'enigmedeux', loadChildren: './enigmedeux/enigmedeux.module#EnigmedeuxPageModule' },
   { path: 'enigmetrois', loadChildren: './enigmetrois/enigmetrois.module#EnigmetroisPageModule' },
   { path: 'enigmequatre', loadChildren: './enigmequatre/enigmequatre.module#EnigmequatrePageModule' },
-  { path: 'enigmecinq', loadChildren: './enigmecinq/enigmecinq.module#EnigmecinqPageModule' }
+  { path: 'enigmecinq', loadChildren: './enigmecinq/enigmecinq.module#EnigmecinqPageModule' },
+  { path: 'felicitation', loadChildren: './felicitation/felicitation.module#FelicitationPageModule' }
 
 ];
 @NgModule({

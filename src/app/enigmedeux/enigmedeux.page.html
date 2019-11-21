@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>enigmedeux</ion-title>
+       <ion-buttons slot="end">
+           <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
+       </ion-buttons>
+    <ion-title>Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding class="form-content">
+  <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <p position="floating" color="warning">Sais tu vraiment différencier un pirate d’un corsaire ?</p>
+      <p position="floating" color="warning">Voici les deux définitions, à toi de retrouver laquelle correspond à celle du pirate et à celle du corsaire (tu peux t’aider d’un dictionnaire) : Déf. n°1 : il travaille pour le compte d’une nation ou d’un roi et attaque des embarcations pour les piller de leur contenu. Déf. n°2 : il agit pour son propre compte, c’est un hors-la-loi qui parcourt les mers pour attaquer les embarcations et voler leurs chargements (et le bateau) ; s’il est attrapé, il est pendu haut et court !</p>
+      <p position="floating" color="warning">Le pirate correspond-il à la définition 1 ou la définition 2 ? écris 1 si tu penses qu’il s’agit de la définition n°1, ou 2 si tu penses que c’est la définition n°2.</p>
+      <ion-label position="floating" color="primary">Ecrivez ici 1 ou 2 :</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.username">
+        <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+        <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.terms">
+        <div class="error-message" *ngIf="validations_form.get('terms').hasError(validation.type) && (validations_form.get('terms').dirty || validations_form.get('terms').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+        <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
+  </form>
 </ion-content>

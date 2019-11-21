@@ -39,4 +39,8 @@ export class EnigmeunPage implements OnInit {
     console.log(values);
     this.route.navigate(["/enigmedeux"]);
   }
+     planspage()
+  {
+    this.route.navigate(['/plans']);
+  }
 }

@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+       <ion-buttons slot="end">
+           <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
+       </ion-buttons>
     <ion-title>Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,6 +11,7 @@
           <img src="assets/enigme/carte1.png"/>
   <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
+      <p position="floating" color="warning">Bienvenue à toi moussaillon ! Tout d’abord, pour te repérer, tu dois trouver la boussole. J’ai laissé une croix à son emplacement, rend toi y et cherche la boussole.(cherche un papier avec une boussole dessus, un mot de passe sera écrit, tu devras l’entrer ci-dessous)</p  >
       <ion-label position="floating" color="primary">Ecrivez ici le mot à trouver :</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
     </ion-item>
