@@ -13,4 +13,8 @@ constructor(private route: Router) { }
   {
     this.route.navigate(['/jeupirate']);
   }
+   muc()
+  {
+    this.route.navigate(['/muc']);
+  }
 }

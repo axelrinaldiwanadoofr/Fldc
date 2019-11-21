@@ -38,7 +38,8 @@ const routes: Routes = [
   { path: 'enigmequatre', loadChildren: './enigmequatre/enigmequatre.module#EnigmequatrePageModule' },
   { path: 'enigmecinq', loadChildren: './enigmecinq/enigmecinq.module#EnigmecinqPageModule' },
   { path: 'felicitation', loadChildren: './felicitation/felicitation.module#FelicitationPageModule' },
-  { path: 'piege', loadChildren: './piege/piege.module#PiegePageModule' }
+  { path: 'piege', loadChildren: './piege/piege.module#PiegePageModule' },
+  { path: 'muc', loadChildren: './muc/muc.module#MucPageModule' }
 
 ];
 @NgModule({

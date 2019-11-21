@@ -14,5 +14,8 @@ export class LyceePage implements OnInit {
   }
   ngOnInit() {
   }
-
+   piege()
+  {
+    this.route.navigate(['/piege']);
+  }
 }
