@@ -20,7 +20,7 @@ export class EnigmedeuxPage implements OnInit {
        
         Validators.maxLength(25),
        
-        Validators.pattern('1'),
+        Validators.pattern('2'),
         
         Validators.required
       ])),
