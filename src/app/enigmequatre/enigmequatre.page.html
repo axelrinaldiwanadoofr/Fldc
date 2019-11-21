@@ -3,14 +3,14 @@
        <ion-buttons slot="end">
            <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
        </ion-buttons>
-    <ion-title>Jeu Pirate</ion-title>
+    <ion-title color="success">Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="form-content">
-      <ion-label position="floating" color="primary">Voici une charade.
+      <p class="bidule">Voici une charade.
 Cherche le résultat de la charade sur un papier, un mot de passe y est inscris, bonne chance moussaillon !
-</ion-label>
+</p>
 <p position="floating" color="warning">Mon premier est la première syllabe de pépé.
 Mon deuxième est ce que font les bébés quand ils ont fini de manger.
 On peut accrocher les bateaux à mon troisième.
@@ -19,7 +19,7 @@ Mon tout est un oiseau qui répète tout.
           <img src="assets/enigme/carte3.png"/>
   <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Ecrire le mot de passe qui convient :</ion-label>
+      <ion-label position="floating" color="success">Ecrire le mot de passe qui convient :</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -36,6 +36,6 @@ Mon tout est un oiseau qui répète tout.
         </div>
       </ng-container>
     </div>
-        <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
+        <ion-button color="success" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
   </form>
 </ion-content>

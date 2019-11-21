@@ -3,11 +3,17 @@
     <ion-buttons slot="end">
       <ion-button (click)="accueilpage()"><ion-icon name="home"></ion-icon>Accueil</ion-button>
     </ion-buttons>
-    <ion-title>Jeu du Pirate</ion-title>
+    <ion-title class="truc">Jeu du Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-label position="floating" color="primary">Félicitations retrouvez nous au stands 101 pour récupérer le trésor de Barbencrème.</ion-label>
+	<ion-card>
+		<ion-card-header>
+	<p class="bidule">Félicitations retrouvez nous au stands <b>101</b> pour récupérer le trésor de <b>Barbencrème.</b></p>
+</ion-card-header>
+<ion-card-content>
     <img src="assets/enigme/carte6.png"/>
+</ion-card-content>
+</ion-card>
 </ion-content>

@@ -3,18 +3,18 @@
        <ion-buttons slot="end">
            <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
        </ion-buttons>
-    <ion-title>Jeu Pirate</ion-title>
+    <ion-title color="tertiary">Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="form-content">
-      <ion-label position="floating" color="primary">Trouvez le mot qui correspond au rebus :</ion-label>
+      <p>Trouvez le mot qui correspond au rebus :</p>
           <img src="assets/enigme/rebus_1.png"/>
-      <ion-label position="floating" color="primary">Trouvez sur le stand l'objet :</ion-label>
+      <p>Trouvez l'objet qui correspond sur le stand  :</p>
           <img src="assets/enigme/carte2.png"/>
   <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Ecrire le mot de passe qui convient :</ion-label>
+      <ion-label position="floating" color="tertiary">Ecrire le mot de passe qui convient :</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -31,6 +31,6 @@
         </div>
       </ng-container>
     </div>
-        <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
+        <ion-button color="tertiary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
   </form>
 </ion-content>

@@ -3,22 +3,20 @@
        <ion-buttons slot="end">
            <ion-button (click)="planspage()"><ion-icon name="map"></ion-icon>Plan</ion-button>
        </ion-buttons>
-    <ion-title>Jeu Pirate</ion-title>
+    <ion-title color="danger">Jeu Pirate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="form-content">
-      <ion-label position="floating" color="primary">Calcul : 
-2 pirates et leur capitaine trouvent un trésor et décident de le départager, mais étant avides, chacun souhaite la plus grande part. Apres avoir bien regardé, le trésor contient 800 pieces.
-
-</ion-label>
-<p position="floating" color="warning">Le capitaine décide de prendre la moitié du trésor, puisqu’il est le capitaine
+      <p class="bidule"><b>Calcul :</b> 
+2 pirates et leur capitaine trouvent un trésor et décident de le départager, mais étant avides, chacun souhaite la plus grande part. Apres avoir bien regardé, le trésor contient 800 pieces.</p>
+<p position="floating" color="danger">Le capitaine décide de prendre la moitié du trésor, puisqu’il est le capitaine
 Les 2 pirates restants décident de laisser 198 pieces dans le coffre qu’ils donneront aux chasseurs de trésor. Pour le reste, ils se le partagent de façon équitable (autant pour l’un que pour l’autre).
 Combien de pieces chacun des pirates a il gardé ?
 </p>
   <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
-      <ion-label position="floating" color="primary">Ecrire la réponse qui convient :</ion-label>
+      <ion-label position="floating" color="danger">Ecrire la réponse qui convient :</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -35,6 +33,6 @@ Combien de pieces chacun des pirates a il gardé ?
         </div>
       </ng-container>
     </div>
-        <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
+        <ion-button color="danger" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Envoyer</ion-button>
   </form>
 </ion-content>
