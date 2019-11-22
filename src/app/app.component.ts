@@ -55,6 +55,11 @@ export class AppComponent {
         title: 'Lycée',
         url: '/lycee',
         icon: 'school'
+    },
+    {
+        title: 'Téléchargement',
+        url: '/telechargement',
+        icon: 'download'
     }
    ];
   constructor(
